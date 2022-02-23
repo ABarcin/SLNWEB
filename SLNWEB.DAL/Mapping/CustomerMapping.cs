@@ -14,17 +14,17 @@ namespace SLNWEB.DAL.Mapping
         {
             return new Customer()
             {
-               CustomerID = vm.CustomerID,
-               CompanyName = vm.CompanyName,
-               ContactName = vm.ContactName,
-               ContactTitle = vm.ContactTitle,
-               Address = vm.Address,
-               City = vm.City,
-               Region = vm.Region,
-               PostalCode = vm.PostalCode,
-               Country = vm.Country,
-               Phone = vm.Phone,
-               Fax = vm.Fax
+                CustomerID = vm.CustomerID,
+                CompanyName = vm.CompanyName,
+                ContactName = vm.ContactName,
+                ContactTitle = vm.ContactTitle,
+                Address = vm.Address,
+                City = vm.City,
+                Region = vm.Region,
+                PostalCode = vm.PostalCode,
+                Country = vm.Country,
+                Phone = vm.Phone,
+                Fax = vm.Fax
             };
         }
 
@@ -32,7 +32,7 @@ namespace SLNWEB.DAL.Mapping
         {
             return new CustomerVM()
             {
-                CustomerID =entity.CustomerID,
+                CustomerID = entity.CustomerID,
                 CompanyName = entity.CompanyName,
                 ContactName = entity.ContactName,
                 ContactTitle = entity.ContactTitle,

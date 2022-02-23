@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container-fluid px-4">
+    <h2 class="mt-4">Raporlama</h2>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>Customer</h5>
+                </div>
+                <div class="col-md-3">
+                    @*@Html.DropDownList("Customer", "Seçiniz")*@
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>Year</h5>
+                </div>
+                <div class="col-md-3">
+                    @*@Html.DropDownList("Year", "Seçiniz")*@
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <input type="button" class="btn btn-outline-secondary" value="Listele" onclick="Listele()" />
+            </div>
+        </div>
+    </div>
+    <div class="card mb-4">
+        <div class="card-header">
+        </div>
+        <div class="card-body">
+            <table id="datatablesSimple">
+                <thead>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Year</th>
+                        <th>Total</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Year</th>
+                        <th>Total</th>
+                        <th>Total Price</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @*@foreach (var item in collection)
+                        {
+                            <tr><td>Customer</td><td>Year</td><td>Total</td><td>Total Pric</td></tr>
+                        }*@
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    function Listele() {
+        //var xhr = new XMLHttpRequest();
+        //xhr.open("GET", "Rapor/RaporGetir", true);
+        //xhr.send();
+        //xhr.onreadystatechange = function () {
+
+        //    var tbody = document.getElementById("datatablesSimple").querySelector("tbody");
+
+        //    tbody.innerHTML = "";
+        //    if (this.readyState == 4 && this.status == 200) {
+
+        //        JSON.parse(this.responseText).forEach(function (data, index) {
+        //            tbody.innerHTML += "<tr><td>Customer</td><td>Year</td><td>Total</td><td>Total Pric</td></tr>"
+
+        //        });
+        //    }
+
+        //}
+    }
+
+</script>

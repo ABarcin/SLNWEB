@@ -1,4 +1,5 @@
-﻿using SLNWEB.DAO.VM;
+﻿using SLNWEB.DAL.Repository;
+using SLNWEB.DAO.VM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,16 +16,28 @@ namespace SLNWEB.UI.Controllers
             return View();
         }
 
+        IOrderDAL _orderDAL;
+        CategoryDAL categoryDal = new CategoryDAL();
+        ProductDAL productDal = new ProductDAL();
+        //ICategoryDAL _catagoryDal;
 
         [HttpGet]
         public ActionResult SatisYap()
         {
-            return View();
+            
+            ViewBag.Catagories = new SelectList(categoryDal.GetAllCategories());
+            SatisVM satisVM = new SatisVM() { 
+      
+            
+            };
+            
+            return View(satisVM);
         }
 
         [HttpPost]
         public ActionResult SatisYap(SatisYapVM satis)
         {
+            //order tabla ekle
             return View();
         }
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SLNWEB.DAL.Repository
 {
-    public interface IEntityRepositoryDAL<T> where T:class,IEntity
+    public interface IEntityRepository<T> where T:class,IEntity
     {
         List<T> GetAll(Func<T, bool> condition=null);
         T Get(object id);

@@ -14,5 +14,9 @@ namespace SLNWEB.DAO.VM
         [Required]
         [StringLength(40)]
         public string CompanyName { get; set; }
+        public override string ToString()
+        {
+            return CompanyName;
+        }
     }
 }
