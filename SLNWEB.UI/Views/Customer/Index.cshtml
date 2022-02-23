@@ -13,7 +13,12 @@
 <body>
     <div>
 
-        @Html.TextBoxFor(x => x.CustomerID)
+        <h2>DropDownListFor</h2>
+
+        @Html.DropDownListFor(a => a.CustomerID, new List<SelectListItem>() {
+            new SelectListItem(){ Text="Hakkari",Value="4" },
+            new SelectListItem(){ Text="Siirt",Value="5" },
+        })
 
     </div>
 </body>

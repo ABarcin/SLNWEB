@@ -12,26 +12,26 @@ namespace SLNWEB.UI.Controllers
     {
         public ActionResult Index()
         {
-            return View(new CustomerDAL().GetCustomer());
+            return View(new CustomerDAL().GetCustomerList());
         }
 
-        //public ActionResult Add()
-        //{
-        //    return View(new CustomerVM());
-        //}
+        public ActionResult Add()
+        {
+            return View(new CustomerVM());
+        }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Add(CustomerVM customerVM)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        //dbyebaglanılacak repo uzerınden bilgiler alınacak
-        //        return RedirectToAction("Add");
-        //    }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Add(CustomerVM customerVM)
+        {
+            if (ModelState.IsValid)
+            {
+                //dbyebaglanılacak repo uzerınden bilgiler alınacak
+                return RedirectToAction("Add");
+            }
 
-        //    return View(customerVM);
-        //}
+            return View(customerVM);
+        }
 
         //[HttpPost]
         //public ActionResult Delete(CustomerVM customerVM)
