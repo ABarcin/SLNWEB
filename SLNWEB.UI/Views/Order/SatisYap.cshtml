@@ -1,25 +1,24 @@
-﻿
+﻿@model SLNWEB.DAO.VM.SatisVM
 @{
     ViewBag.Title = "SatisYap";
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
 }
 
-@using SLNWEB.DAO.VM
-@model SatisVM
+
 
 <div class="container-fluid px-4">
     <h2 class="mt-4">Satış Sayfası </h2>
 
     @using (Html.BeginForm("Order", "SatisYap", FormMethod.Post))
     {
-        @Html.AntiForgeryToken()
-        <div>
-            <fieldset class="form-group">
-                <legend tabindex="-1" class="col-form-label">Katagori</legend>
-               @*@Html.DropDownListFor(a=>a.Categories)*@
-            </fieldset>
+    @Html.AntiForgeryToken()
+    <div>
+        <fieldset class="form-group">
+            <legend tabindex="-1" class="col-form-label">Katagori</legend>
+            @Html.DropDownListFor(a=>a.Order.EmployeeID,Model.Employees,"Seçiniz",null)
+        </fieldset>
 
-        </div>
+    </div>
     }
 
 

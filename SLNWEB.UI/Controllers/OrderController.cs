@@ -19,7 +19,9 @@ namespace SLNWEB.UI.Controllers
         [HttpGet]
         public ActionResult SatisYap()
         {
-            return View();
+            SatisVM satisVM = new SatisVM();
+            
+            return View(satisVM);
         }
 
         [HttpPost]
