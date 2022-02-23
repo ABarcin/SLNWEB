@@ -12,6 +12,8 @@ namespace SLNWEB.DAL.Repository
     {
         List<CustomerVM> GetCustomerList();
 
-        CustomerVM GetCustomer();
+        CustomerVM GetCustomer(object id);
+
+        CustomerVM 
     }
 }

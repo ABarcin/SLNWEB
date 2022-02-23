@@ -1,8 +1,10 @@
-﻿@{
+﻿
+@{
     Layout = null;
 }
 
-@model SLNWEB.DAO.VM.CustomerVM
+@using SLNWEB.DAO.VM
+@model List<CustomerVM>
 <!DOCTYPE html>
 
 <html>
@@ -13,12 +15,24 @@
 <body>
     <div>
 
-        <h2>DropDownListFor</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@item.CustomerID</td>
+                    <td>@item.ContactName</td>
+                    <td>@item.CompanyName</td>
+                    <td>@item.City</td>
+                </tr>
+                }
 
-        @Html.DropDownListFor(a => a.CustomerID, new List<SelectListItem>() {
-            new SelectListItem(){ Text="Hakkari",Value="4" },
-            new SelectListItem(){ Text="Siirt",Value="5" },
-        })
+            </tbody>
+        </table>
 
     </div>
 </body>

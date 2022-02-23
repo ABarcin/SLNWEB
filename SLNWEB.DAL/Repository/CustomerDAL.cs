@@ -11,9 +11,9 @@ namespace SLNWEB.DAL.Repository
 {
     public class CustomerDAL : EntityRepository<Customer, NorthwindEntities>, ICustomerDAL
     {
-        public CustomerVM GetCustomer()
+        public CustomerVM GetCustomer(object id)
         {
-            return new CustomerMapping().CustomerToCustomerVM(GetAll(x => x.CustomerID == "ALFKI").SingleOrDefault());
+            return new CustomerMapping().CustomerToCustomerVM(GetAll(x => x.CustomerID == id.ToString()).SingleOrDefault());
         }
 
         public List<CustomerVM> GetCustomerList()
