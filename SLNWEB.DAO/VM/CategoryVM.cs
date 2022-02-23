@@ -14,5 +14,10 @@ namespace SLNWEB.DAO.VM
         [Required]
         [StringLength(15)]
         public string CategoryName { get; set; }
+
+        public override string ToString()
+        {
+            return CategoryName.ToUpper();
+        }
     }
 }
