@@ -19,7 +19,10 @@ namespace SLNWEB.UI.Controllers
         [HttpGet]
         public ActionResult SatisYap()
         {
-            return View();
+            //ViewBag.Catagories = new SelectList(listem.ToList(), "ID", "Adi");
+            SatisVM satisVM = new SatisVM();
+            
+            return View(satisVM);
         }
 
         [HttpPost]
