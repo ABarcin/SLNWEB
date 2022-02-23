@@ -7,7 +7,7 @@ namespace SLNWEB.Core
     using System.Data.Entity.Spatial;
 
     [Table("Order Details")]
-    public partial class Order_Details
+    public partial class Order_Detail
     {
         [Key]
         [Column(Order = 0)]
@@ -26,8 +26,8 @@ namespace SLNWEB.Core
 
         public float Discount { get; set; }
 
-        public virtual Orders Orders { get; set; }
+        public virtual Order Order { get; set; }
 
-        public virtual Products Products { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

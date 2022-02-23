@@ -6,17 +6,16 @@ namespace SLNWEB.Core
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Employees
+    public partial class Employee
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Employees()
+        public Employee()
         {
-            Employees1 = new HashSet<Employees>();
-            Orders = new HashSet<Orders>();
-            Territories = new HashSet<Territories>();
+            Employees1 = new HashSet<Employee>();
+            Orders = new HashSet<Order>();
+            Territories = new HashSet<Territory>();
         }
 
-        [Key]
         public int EmployeeID { get; set; }
 
         [Required]
@@ -70,14 +69,14 @@ namespace SLNWEB.Core
         public string PhotoPath { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Employees> Employees1 { get; set; }
+        public virtual ICollection<Employee> Employees1 { get; set; }
 
-        public virtual Employees Employees2 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Orders> Orders { get; set; }
+        public virtual Employee Employee1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Territories> Territories { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Territory> Territories { get; set; }
     }
 }

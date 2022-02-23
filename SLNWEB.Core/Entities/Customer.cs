@@ -6,16 +6,17 @@ namespace SLNWEB.Core
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Suppliers
+    public partial class Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Suppliers()
+        public Customer()
         {
-            Products = new HashSet<Products>();
+            Orders = new HashSet<Order>();
+            CustomerDemographics = new HashSet<CustomerDemographic>();
         }
 
-        [Key]
-        public int SupplierID { get; set; }
+        [StringLength(5)]
+        public string CustomerID { get; set; }
 
         [Required]
         [StringLength(40)]
@@ -48,10 +49,10 @@ namespace SLNWEB.Core
         [StringLength(24)]
         public string Fax { get; set; }
 
-        [Column(TypeName = "ntext")]
-        public string HomePage { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Orders { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Products> Products { get; set; }
+        public virtual ICollection<CustomerDemographic> CustomerDemographics { get; set; }
     }
 }
