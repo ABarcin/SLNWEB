@@ -1,0 +1,34 @@
+﻿
+@{
+    Layout = null;
+}
+
+@using SLNWEB.DAO.VM
+@model CustomerVM
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+</head>
+<body>
+    <div>
+
+        @using (Html.BeginForm("Add", "Customer", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div>
+
+                CustomerID:@Html.EditorFor(a => a.CustomerID)
+                <br />
+                CompanyName:@Html.EditorFor(a => a.CompanyName)
+            </div>
+
+            <input type="submit" name="name" value="Add Customer" />
+        }
+
+    </div>
+</body>
+</html>

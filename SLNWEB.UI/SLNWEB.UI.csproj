@@ -124,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\RaporController.cs" />
     <Compile Include="Global.asax.cs">
@@ -160,6 +161,8 @@
     <Content Include="Views\Order\SatisYap.cshtml" />
     <Content Include="Views\Shared\_LayoutPage.cshtml" />
     <Content Include="Views\Rapor\Index.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Customer\Add.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -170,6 +173,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Satis\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SLNWEB.DAL\SLNWEB.DAL.csproj">

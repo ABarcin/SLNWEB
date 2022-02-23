@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+@using SLNWEB.DAO.VM
+@model List<CustomerVM>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@item.CustomerID</td>
+                    <td>@item.ContactName</td>
+                    <td>@item.CompanyName</td>
+                    <td>@item.City</td>
+                </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>
