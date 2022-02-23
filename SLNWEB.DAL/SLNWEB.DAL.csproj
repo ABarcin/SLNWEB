@@ -49,11 +49,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mapping\CategoryMapping.cs" />
+    <Compile Include="Mapping\CustomerMapping.cs" />
     <Compile Include="Mapping\EmployeeMapping.cs" />
     <Compile Include="Mapping\OrderMapping.cs" />
     <Compile Include="Mapping\ProductMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CustomerDAL.cs" />
     <Compile Include="Repository\EntityRepository.cs" />
+    <Compile Include="Repository\ICustomerDAL.cs" />
     <Compile Include="Repository\IEntityRepository.cs" />
     <Compile Include="Repository\IOrderDAL.cs" />
     <Compile Include="Repository\OrderDAL.cs" />
