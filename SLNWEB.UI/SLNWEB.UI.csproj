@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -110,8 +111,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Order\" />
+    <Folder Include="Views\Satis\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SLNWEB.DAO\SLNWEB.DAO.csproj">
+      <Project>{FF865DCC-5999-4AEA-A74F-DB13A9C520A5}</Project>
+      <Name>SLNWEB.DAO</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
