@@ -17,10 +17,12 @@ namespace SLNWEB.UI.Controllers
         }
 
         IOrderDAL _orderDAL;
+        ICategoryDAL _categoryDAL;
         [HttpGet]
         public ActionResult SatisYap()
         {
-            ViewBag.Catagories = new SelectList(listem.ToList(), "ID", "Adi");
+
+            //ViewBag.Catagories = new SelectList(_categoryDAL.GetAllCategories());
             SatisVM satisVM = new SatisVM();
             
             return View(satisVM);
