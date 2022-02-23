@@ -26,7 +26,7 @@ namespace SLNWEB.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                //dbyebaglanılacak repo uzerınden bilgiler alınacak
+                new CustomerDAL().AddCustomer(customerVM);
                 return RedirectToAction("Add");
             }
 
