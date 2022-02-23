@@ -14,7 +14,7 @@ namespace SLNWEB.DAL.Repository
         CategoryMapping mapping = new CategoryMapping();
         public List<CategoryVM> GetAllCategories()
         {
-            return mapping.ListCategoryToListCategoryVM(this.GetAll());
+            return mapping.ListCategoryToListCategoryVM(this.GetAll()).ToList();
         }
     }
 }

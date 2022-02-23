@@ -1,5 +1,4 @@
-﻿using SLNWEB.DAL.Repository;
-using SLNWEB.DAO.VM;
+﻿using SLNWEB.DAO.VM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
