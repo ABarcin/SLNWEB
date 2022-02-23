@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace SLNWEB.DAL.Repository
 {
-    public interface IEmployeeDAL : IEntityRepository<Employee>
+    public interface IShipperDAL : IEntityRepository<Shipper>
     {
-        List<EmployeeVM> GettAllEmployee();
+        List<ShipperVM> GetAllShipper();
     }
 }
