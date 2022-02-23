@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mapping\OrderMapping.cs" />
+    <Compile Include="Mapping\ProductMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\EntityRepositoryDAL.cs" />
     <Compile Include="Repository\IEntityRepositoryDAL.cs" />
@@ -66,5 +68,6 @@
       <Name>SLNWEB.DAO</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
