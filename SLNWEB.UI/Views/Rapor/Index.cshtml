@@ -9,7 +9,27 @@
 
     <div class="card mb-4">
         <div class="card-body">
-
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>Customer</h5>
+                </div>
+                <div class="col-md-3">
+                    @*@Html.DropDownList("Customer", "Seçiniz")*@
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>Year</h5>
+                </div>
+                <div class="col-md-3">
+                    @*@Html.DropDownList("Year", "Seçiniz")*@
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <input type="button" class="btn btn-outline-secondary" value="Listele" onclick="Listele()" />
+            </div>
         </div>
     </div>
     <div class="card mb-4">
@@ -19,35 +39,24 @@
             <table id="datatablesSimple">
                 <thead>
                     <tr>
-                        <th></th>
                         <th>Customer</th>
                         <th>Year</th>
-                        <th>Product</th>
+                        <th>Total</th>
                         <th>Total Price</th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
-                        <th></th>
                         <th>Customer</th>
                         <th>Year</th>
-                        <th>Product</th>
+                        <th>Total</th>
                         <th>Total Price</th>
-                        <th></th>
                     </tr>
                 </tfoot>
                 <tbody>
                     @*@foreach (var item in collection)
                         {
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                            <tr><td>Customer</td><td>Year</td><td>Total</td><td>Total Pric</td></tr>
                         }*@
 
 
@@ -56,3 +65,25 @@
         </div>
     </div>
 </div>
+<script>
+    function Listele() {
+        //var xhr = new XMLHttpRequest();
+        //xhr.open("GET", "Rapor/RaporGetir", true);
+        //xhr.send();
+        //xhr.onreadystatechange = function () {
+
+        //    var tbody = document.getElementById("datatablesSimple").querySelector("tbody");
+
+        //    tbody.innerHTML = "";
+        //    if (this.readyState == 4 && this.status == 200) {
+
+        //        JSON.parse(this.responseText).forEach(function (data, index) {
+        //            tbody.innerHTML += "<tr><td>Customer</td><td>Year</td><td>Total</td><td>Total Pric</td></tr>"
+
+        //        });
+        //    }
+
+        //}
+    }
+
+</script>

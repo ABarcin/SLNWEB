@@ -26,5 +26,9 @@ namespace SLNWEB.DAO.VM
         public short? UnitsInStock { get; set; }
 
         public bool Discontinued { get; set; }
+        public override string ToString()
+        {
+            return ProductName;
+        }
     }
 }

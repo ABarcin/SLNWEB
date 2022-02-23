@@ -18,6 +18,9 @@ namespace SLNWEB.DAO.VM
         [Required]
         [StringLength(10)]
         public string FirstName { get; set; }
-
+        public override string ToString()
+        {
+            return (FirstName + " " + LastName).ToUpper();
+        }
     }
 }

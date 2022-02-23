@@ -11,49 +11,51 @@
     @using (Html.BeginForm("Order", "SatisYap", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
-        <div class="">
-            <div class="row">
-                <div class="col-md-3">
-                    <h5>Catagory</h5>
-                </div>
-                <div class="col-md-3">
-                    @Html.DropDownList("Catagories","Seçiniz")
-                </div>
 
-            </div>
-
-            <div class="row">
-                <div class="col-md-3">
-                    <h5>Product</h5>
-                </div>
-                <div class="col-md-3">
-                    @*@Html.DropDownListFor(a => a.Order.EmployeeID, Model.Employees, "Seçiniz", null)*@
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Catagory</h5>
+                    </div>
+                    <div class="col-md-3">
+                        @Html.DropDownList("Catagories", "Seçiniz")
+                    </div>
 
                 </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Product</h5>
+                    </div>
+                    <div class="col-md-3">
+                        @*@Html.DropDownListFor(a => a.Order.EmployeeID, Model.Employees, "Seçiniz", null)*@
 
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <h5>Employee</h5>
-                </div>
-                <div class="col-md-3">
-                    @*@Html.DropDownListFor(a => a.Order.EmployeeID, Model.Employees, "Seçiniz", null)*@
-
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <h5>Shipper</h5>
-                </div>
-                <div class="col-md-3">
-                    @*@Html.DropDownListFor(a => a.Order.ShipVia, Model.Shippers, "Seçiniz", null)*@
+                    </div>
 
                 </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Employee</h5>
+                    </div>
+                    <div class="col-md-3">
+                        @*@Html.DropDownListFor(a => a.Order.EmployeeID, Model.Employees, "Seçiniz", null)*@
 
-            </div>
-            <div>
-                <input type="submit" name="name" class="btn btn-outline-primary" value="Satış Yap" />
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Shipper</h5>
+                    </div>
+                    <div class="col-md-3">
+                        @*@Html.DropDownListFor(a => a.Order.ShipVia, Model.Shippers, "Seçiniz", null)*@
+
+                    </div>
+
+                </div>
+                <div>
+                    <input type="submit" name="name" class="btn btn-outline-primary" value="Satış Yap" />
+                </div>
             </div>
         </div>
 
