@@ -46,5 +46,15 @@
   <ItemGroup>
     <Folder Include="Repository\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SLNWEB.Core\SLNWEB.Core.csproj">
+      <Project>{06d48a3b-2730-44ee-b2d4-bd9f717590ac}</Project>
+      <Name>SLNWEB.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SLNWEB.DAO\SLNWEB.DAO.csproj">
+      <Project>{ff865dcc-5999-4aea-a74f-db13a9c520a5}</Project>
+      <Name>SLNWEB.DAO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -51,11 +51,5 @@
     <Compile Include="VM\ShipperVM.cs" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="..\SLNWEB.Core\SLNWEB.Core.csproj">
-      <Project>{06D48A3B-2730-44EE-B2D4-BD9F717590AC}</Project>
-      <Name>SLNWEB.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
