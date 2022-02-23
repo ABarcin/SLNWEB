@@ -40,9 +40,10 @@ namespace SLNWEB.DAL.Repository
 
         public List<TEntity> GetAll(Func<TEntity, bool> condition=null)
         {
+         
             using (TContext db = new TContext())
             {
-                return db.Set<TEntity>().Where(condition).ToList();
+                return condition==null? db.Set<TEntity>().ToList(): db.Set<TEntity>().Where(condition).ToList();
             }
         }
 

@@ -54,12 +54,17 @@
     <Compile Include="Mapping\OrderMapping.cs" />
     <Compile Include="Mapping\ProductMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CategoryDAL.cs" />
     <Compile Include="Repository\CustomerDAL.cs" />
     <Compile Include="Repository\EntityRepository.cs" />
+    <Compile Include="Repository\ICategoryDAL.cs" />
+    <Compile Include="Repository\IEmployeeDAL.cs" />
     <Compile Include="Repository\ICustomerDAL.cs" />
     <Compile Include="Repository\IEntityRepository.cs" />
     <Compile Include="Repository\IOrderDAL.cs" />
+    <Compile Include="Repository\IProductDAL.cs" />
     <Compile Include="Repository\OrderDAL.cs" />
+    <Compile Include="Repository\ProductDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

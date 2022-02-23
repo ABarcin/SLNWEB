@@ -1,4 +1,5 @@
 ﻿using SLNWEB.Core;
+using SLNWEB.DAO.VM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace SLNWEB.DAL.Repository
 {
-    public interface IOrderDAL:IEntityRepository<Order>  
+    public interface ICategoryDAL : IEntityRepository<Category>
     {
+        List<CategoryVM> GetAllCategories();
     }
 }
