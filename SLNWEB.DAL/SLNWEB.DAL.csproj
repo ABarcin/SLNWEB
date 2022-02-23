@@ -43,9 +43,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repository\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\SLNWEB.Core\SLNWEB.Core.csproj">
       <Project>{06d48a3b-2730-44ee-b2d4-bd9f717590ac}</Project>
