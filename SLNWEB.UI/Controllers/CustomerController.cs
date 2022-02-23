@@ -1,4 +1,5 @@
-﻿using SLNWEB.DAO.VM;
+﻿using SLNWEB.DAL.Repository;
+using SLNWEB.DAO.VM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +10,6 @@ namespace SLNWEB.UI.Controllers
 {
     public class CustomerController : Controller
     {
-        // GET: Customer
-        public ActionResult Index()
-        {
-            return View();
-        }
 
-        public ActionResult Add()
-        {
-            return View(new CustomerVM());
-        }
     }
 }
