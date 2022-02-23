@@ -18,6 +18,7 @@ namespace SLNWEB.UI.Controllers
 
         IOrderDAL _orderDAL;
         CategoryDAL categoryDal = new CategoryDAL();
+        ProductDAL productDal = new ProductDAL();
         //ICategoryDAL _catagoryDal;
 
         [HttpGet]
@@ -25,7 +26,10 @@ namespace SLNWEB.UI.Controllers
         {
             
             ViewBag.Catagories = new SelectList(categoryDal.GetAllCategories());
-            SatisVM satisVM = new SatisVM();
+            SatisVM satisVM = new SatisVM() { 
+      
+            
+            };
             
             return View(satisVM);
         }
