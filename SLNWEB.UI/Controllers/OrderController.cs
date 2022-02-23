@@ -1,4 +1,5 @@
-﻿using SLNWEB.DAO.VM;
+﻿using SLNWEB.DAL.Repository;
+using SLNWEB.DAO.VM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,13 +16,11 @@ namespace SLNWEB.UI.Controllers
             return View();
         }
 
-
+        IOrderDAL _orderDAL;
         [HttpGet]
         public ActionResult SatisYap()
         {
-            SatisVM satisVM = new SatisVM();
-            
-            return View(satisVM);
+            return View();
         }
 
         [HttpPost]

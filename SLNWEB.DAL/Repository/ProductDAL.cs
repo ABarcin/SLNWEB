@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SLNWEB.DAL.Repository
 {
-    public interface IOrderDAL:IEntityRepository<Order>  
+    public class ProductDAL : EntityRepository<Product, NorthwindEntities>, IProductDAL
     {
     }
 }
