@@ -1,5 +1,6 @@
 namespace SLNWEB.Core
 {
+    using SLNWEB.Core.Entities;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -7,7 +8,7 @@ namespace SLNWEB.Core
     using System.Data.Entity.Spatial;
 
     [Table("Region")]
-    public partial class Region
+    public partial class Region : IEntity
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Region()
