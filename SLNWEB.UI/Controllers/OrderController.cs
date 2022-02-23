@@ -19,6 +19,7 @@ namespace SLNWEB.UI.Controllers
         [HttpGet]
         public ActionResult SatisYap()
         {
+            ViewBag.Catagories = new SelectList(listem.ToList(), "ID", "Adi");
             SatisVM satisVM = new SatisVM();
             
             return View(satisVM);
