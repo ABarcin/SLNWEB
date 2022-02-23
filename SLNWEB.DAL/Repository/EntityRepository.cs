@@ -1,4 +1,5 @@
-﻿using SLNWEB.Core.Entities;
+﻿using SLNWEB.Core;
+using SLNWEB.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,10 +9,15 @@ using System.Threading.Tasks;
 
 namespace SLNWEB.DAL.Repository
 {
-    public class EntityRepositoryDAL<TEntity, TContext> : IEntityRepositoryDAL<TEntity>
+    public class EntityRepository<TEntity, TContext> : IEntityRepository<TEntity>
         where TEntity : class, IEntity
         where TContext : DbContext, new()
     {
+        public EntityRepository()
+        {
+            _context = new TContext();
+        }
+        private readonly TContext _context;
         public int Add(TEntity entity)
         {
             int value = 0;

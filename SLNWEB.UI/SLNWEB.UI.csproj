@@ -166,6 +166,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SLNWEB.DAL\SLNWEB.DAL.csproj">
+      <Project>{3ECA7EC7-7FBA-48C2-8DDE-472B4FF28ED3}</Project>
+      <Name>SLNWEB.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SLNWEB.DAO\SLNWEB.DAO.csproj">
       <Project>{FF865DCC-5999-4AEA-A74F-DB13A9C520A5}</Project>
       <Name>SLNWEB.DAO</Name>
