@@ -1,5 +1,6 @@
 namespace SLNWEB.Core
 {
+    using SLNWEB.Core.Entities;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -7,7 +8,7 @@ namespace SLNWEB.Core
     using System.Data.Entity.Spatial;
 
     [Table("Order Details")]
-    public partial class Order_Detail
+    public partial class Order_Detail : IEntity
     {
         [Key]
         [Column(Order = 0)]

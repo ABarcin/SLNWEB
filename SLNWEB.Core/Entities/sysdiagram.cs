@@ -1,12 +1,13 @@
 namespace SLNWEB.Core
 {
+    using SLNWEB.Core.Entities;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class sysdiagram
+    public partial class sysdiagram : IEntity
     {
         [Required]
         [StringLength(128)]
