@@ -13,7 +13,7 @@ namespace SLNWEB.DAL.Repository
     {
         public List<ProductVM> GetAllProductVMByCategoryID(object id)
         {
-            return new ProductMapping().ListProductToListProductVM(this.GetAll(x => x.CategoryID == Convert.ToInt32(id)));
+            return new ProductMapping().ListProductToListProductVM(this.GetAll(x => x.CategoryID == Convert.ToInt32(id))).ToList();
         }
     }
 }
