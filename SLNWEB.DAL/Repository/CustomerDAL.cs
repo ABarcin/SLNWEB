@@ -16,6 +16,11 @@ namespace SLNWEB.DAL.Repository
             return Add(new CustomerMapping().CustomerVMToCustomer(customer));
         }
 
+        public int DeleteCustomer(CustomerVM customer)
+        {
+            return Delete(new CustomerMapping().CustomerVMToCustomer(customer));
+        }
+
         public CustomerVM GetCustomer(object id)
         {
             return new CustomerMapping().CustomerToCustomerVM(GetAll(x => x.CustomerID == id.ToString()).SingleOrDefault());

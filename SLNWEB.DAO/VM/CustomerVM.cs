@@ -42,5 +42,10 @@ namespace SLNWEB.DAO.VM
 
         [StringLength(24)]
         public string Fax { get; set; }
+
+        public override string ToString()
+        {
+            return CustomerID;
+        }
     }
 }

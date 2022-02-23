@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = null;
+}
+@using SLNWEB.DAO.VM
+@model CustomerVM
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Delete</title>
+</head>
+<body>
+    <div>
+
+        @using (Html.BeginForm("Delete", "Customer", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+        <div>
+            @Html.DropDownList("Customers", "Select..")
+
+        </div>
+
+            <input type="submit" name="name" value="Delete Customer" />
+        }
+
+    </div>
+</body>
+</html>

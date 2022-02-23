@@ -12,6 +12,7 @@ namespace SLNWEB.UI.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Customers = new SelectList(new CustomerDAL().GetCustomerList());
             return View(new CustomerDAL().GetCustomerList());
         }
 
@@ -27,23 +28,29 @@ namespace SLNWEB.UI.Controllers
             if (ModelState.IsValid)
             {
                 new CustomerDAL().AddCustomer(customerVM);
-                return RedirectToAction("Add");
+                return RedirectToAction("Index", "Customer");
             }
 
             return View(customerVM);
         }
 
-        //[HttpPost]
-        //public ActionResult Delete(CustomerVM customerVM)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        //deye bagla elemanı ucur
-        //        return RedirectToAction("Index", "Customer");
-        //    }
+        public ActionResult Delete()
+        {
+            ViewBag.Customers = new SelectList(new CustomerDAL().GetCustomerList());
+            return View(new CustomerVM());
+        }
 
-        //    return View(customerVM);
-        //}
+        [HttpPost]
+        public ActionResult Delete(CustomerVM customerVM)
+        {
+            if (ModelState.IsValid)
+            {
+                new CustomerDAL().DeleteCustomer(customerVM);
+                
+            }
+
+            return RedirectToAction("Index", "Customer");
+        }
 
         //[HttpGet]
         //public ActionResult Update(CustomerVM customerVM)
