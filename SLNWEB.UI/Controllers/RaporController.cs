@@ -24,6 +24,7 @@ namespace SLNWEB.UI.Controllers
 
             return View(raporVM);
         }
+        [HttpPost]
         public RaporVM RaporGetir()
         {
 
