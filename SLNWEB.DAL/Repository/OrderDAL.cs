@@ -18,6 +18,11 @@ namespace SLNWEB.DAL.Repository
 
         }
 
+        public List<OrderVM> GetLastTenOrders()
+        {
+            return new OrderMapping().ListOrderToListOrderVM(this.GetAll().OrderByDescending(x=>x.OrderID).Take(10).ToList());
+        }
+
         public List<int> GetYears()
         {
             return this.GetAll().Select(x => x.OrderDate.Value.Year).Distinct().ToList();
