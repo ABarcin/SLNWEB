@@ -8,7 +8,7 @@
 <div class="container-fluid px-4">
     <h2 class="mt-4">Satış Sayfası </h2>
 
-    @using (Html.BeginForm("Order", "SatisYap", FormMethod.Post))
+    @using (Html.BeginForm("SatisYap", "Order", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
 
@@ -19,7 +19,7 @@
                         <h5>Catagory</h5>
                     </div>
                     <div class="col-md-3">
-                        @Html.DropDownList("Catagories", "Seçiniz")
+                        @Html.DropDownList("Catagories" , "Seçiniz")
                     </div>
 
                 </div>
@@ -28,7 +28,7 @@
                         <h5>Product</h5>
                     </div>
                     <div class="col-md-3">
-                        @*@Html.DropDownListFor(a => a.Order.EmployeeID, Model.Employees, "Seçiniz", null)*@
+                        @Html.DropDownListFor(a=>a.Products,Model.Products, "Seçiniz", null)
 
                     </div>
 
@@ -38,7 +38,7 @@
                         <h5>Employee</h5>
                     </div>
                     <div class="col-md-3">
-                        @*@Html.DropDownListFor(a => a.Order.EmployeeID, Model.Employees, "Seçiniz", null)*@
+                        @Html.DropDownListFor(a => a.Order.EmployeeID, Model.Employees, "Seçiniz", null)
 
                     </div>
 
@@ -48,7 +48,7 @@
                         <h5>Shipper</h5>
                     </div>
                     <div class="col-md-3">
-                        @*@Html.DropDownListFor(a => a.Order.ShipVia, Model.Shippers, "Seçiniz", null)*@
+                        @Html.DropDownListFor(a => a.Order.ShipVia, Model.Shippers, "Seçiniz", null)
 
                     </div>
 
@@ -60,7 +60,6 @@
         </div>
 
     }
-
 
 
 </div>
