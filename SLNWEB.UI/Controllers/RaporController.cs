@@ -28,15 +28,16 @@ namespace SLNWEB.UI.Controllers
             return View(raporVM);
         }
         [HttpPost]
-        public List<CustomerOrderReportVM> RaporGetir(string customerID,int year)
+        public IEnumerable<CustomerOrderReportVM> RaporGetir(string customerID,int year)
         {
-            RaporVM raporVM = new RaporVM();
-            raporVM.Customer = new CustomerVM()
-            {
-                CustomerID = customerID
-            };
-             
-            List<CustomerOrderReportVM> raporVMs = reportDAL.GetReportByYearAndCustomerID(raporVM).Report.ToList();
+            //RaporVM raporVM = new RaporVM();
+            //raporVM.Customer = new CustomerVM()
+            //{
+            //    CustomerID = customerID
+            //};
+
+            //List<CustomerOrderReportVM> raporVMs = reportDAL.GetReportByYearAndCustomerID(raporVM).Report.ToList();
+            List<CustomerOrderReportVM> raporVMs = reportDAL.GetReportByCustomerID(customerID);
 
             return raporVMs;
         }

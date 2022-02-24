@@ -21,6 +21,7 @@ namespace SLNWEB.DAL.Repository
                                                  {
                                                      OrderDate = gr.Key.o.OrderDate.Value.ToShortDateString(),
                                                      CustomerName = gr.Key.c.CompanyName,
+                                                     Count=gr.Count(),
                                                      Price = gr.Sum(x => x.od.Quantity * x.od.UnitPrice * (decimal)(1 - x.od.Discount)),
                                                  }).ToList();
             return query;
