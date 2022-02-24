@@ -13,5 +13,6 @@ namespace SLNWEB.DAL.Repository
         int AddOrder(OrderVM orderVM);
         List<int> GetYears();
         List<OrderVM> GetLastTenOrders();
+        List<OrderVM> GetAllOrders();
     }
 }

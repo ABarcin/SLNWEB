@@ -17,6 +17,12 @@ namespace SLNWEB.DAL.Repository
             return value;
 
         }
+
+        public List<OrderVM> GetAllOrders()
+        {
+            return new OrderMapping().ListOrderToListOrderVM(this.GetAll());
+        }
+
         public List<OrderVM> GetLastTenOrders()
         {
             return new OrderMapping().ListOrderToListOrderVM(this.GetAll().OrderByDescending(x=>x.OrderID).Take(10).ToList());

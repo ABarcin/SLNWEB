@@ -12,7 +12,6 @@ namespace SLNWEB.DAO.VM
         public List<SelectListItem> Customers { get; set; }
         public List<int> Years { get; set; }
         public CustomerVM Customer { get; set; }
-
         public List<CustomerOrderReportVM> Report { get; set; }
     }
 }

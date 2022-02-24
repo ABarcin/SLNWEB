@@ -10,7 +10,7 @@ namespace SLNWEB.DAO.VM
     {
         public string CustomerName { get; set; }
         public int Count { get; set; }
-        public decimal Price { get; set; }
+        public decimal? Price { get; set; }
         public DateTime OrderDate { get; set; }
     }
 }

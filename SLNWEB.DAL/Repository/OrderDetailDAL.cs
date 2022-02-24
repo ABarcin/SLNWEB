@@ -15,5 +15,10 @@ namespace SLNWEB.DAL.Repository
         {
             return this.Add(new OrderDetailMapping().OrderDetailVMToOrder_Detail(orderDetailVM));
         }
+
+        public List<OrderDetailVM> GetAllOrderDetails()
+        {
+            return new OrderDetailMapping().ListOrder_DetailToOrderDetail( this.GetAll());
+        }
     }
 }
