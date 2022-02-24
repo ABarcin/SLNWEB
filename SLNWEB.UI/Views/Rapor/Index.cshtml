@@ -7,6 +7,7 @@
     List<int> Year = (List<int>)ViewBag.Year;
 
 }
+
 @model SLNWEB.DAO.VM.RaporVM
 
 <div class="container-fluid px-4">
@@ -87,19 +88,14 @@
         xhr.onreadystatechange = function () {
 
             var tbody = document.getElementById("datatablesSimple").querySelector("tbody");
-
+            debugger;
             tbody.innerHTML = "";
-
-            JSON.parse(this.responseText).forEach(function (data, index) {
+            if (this.readyState == 4 && this.status == 200) {
+                JSON.parse(this.response).forEach(function (data, index) {
 
                 tbody.innerHTML += "<tr><td>" + data.CustomerName + "</td><td>" + data.Count + "</td><td>" + data.Price + "</td><td> " + data.OrderDate + " </td></tr>"
-
             });
-
-
+            }
         }
     }
-
-
-
 </script>

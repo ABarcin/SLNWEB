@@ -9,8 +9,8 @@ namespace SLNWEB.DAO.VM
     public class CustomerOrderReportVM
     {
         public string CustomerName { get; set; }
-        public int Count { get; set; }
-        public decimal? Price { get; set; }
+        public string Count { get; set; }
+        public string Price { get; set; }
         public string OrderDate { get; set; }
     }
 }

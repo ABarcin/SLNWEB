@@ -28,7 +28,7 @@ namespace SLNWEB.UI.Controllers
             return View(raporVM);
         }
         [HttpPost]
-        public IEnumerable<CustomerOrderReportVM> RaporGetir(string customerID,int year)
+        public object RaporGetir(string customerID,int year)
         {
             //RaporVM raporVM = new RaporVM();
             //raporVM.Customer = new CustomerVM()
@@ -38,8 +38,17 @@ namespace SLNWEB.UI.Controllers
 
             //List<CustomerOrderReportVM> raporVMs = reportDAL.GetReportByYearAndCustomerID(raporVM).Report.ToList();
             List<CustomerOrderReportVM> raporVMs = reportDAL.GetReportByCustomerID(customerID);
+            
+            var a= (from r in raporVMs
+                    select new
+                    {
+                        CustomerName = r.CustomerName,
+                        Count = r.Count.ToString(),
+                        Price = r.Price.ToString(),
+                        OrderDate = r.OrderDate.ToString()
+                    }).ToArray();
 
-            return raporVMs;
+            return a;
         }
 
         private List<SelectListItem> CustomerGetir(List<CustomerVM> customerVMs)
