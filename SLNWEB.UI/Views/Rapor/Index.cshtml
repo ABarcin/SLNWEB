@@ -19,7 +19,7 @@
                     <h5>Customer</h5>
                 </div>
                 <div class="col-md-3">
-                    @Html.DropDownListFor(a => a.Customer.CustomerID, Model.Customers, "Seçiniz", null)
+                    @Html.DropDownListFor(a => a.Customer.CustomerID, Model.Customers, "Seçiniz", new { @id = "customerID" })
                 </div>
             </div>
             <br />
@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-md-3">
                     @*@Html.DropDownListFor(a => a.Year, Model.Years, "Seçiniz", null)*@
-                    @Html.DropDownList("Year", new SelectList(Year))
+                    @Html.DropDownList("Year", new SelectList(Year),new { @id= "year" })
                 </div>
             </div>
             <br />
@@ -71,12 +71,19 @@
         </div>
     </div>
 </div>
+<script src="~/Scripts/jquery-3.6.0.js"></script>
 <script>
     function Listele() {
         debugger;
+        let cus = $('select#customerID option:selected').val();
+        let year = $('select#year option:selected').val();
+        let data = new FormData();
+        data.append('CustomerID', cus );
+        data.append('Year', year);
+
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "/Rapor/RaporGetir", true);
-        xhr.send();
+        xhr.send(data);
         xhr.onreadystatechange = function () {
 
             var tbody = document.getElementById("datatablesSimple").querySelector("tbody");
@@ -92,5 +99,7 @@
 
         }
     }
+
+
 
 </script>

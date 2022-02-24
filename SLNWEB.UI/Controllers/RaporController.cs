@@ -21,17 +21,16 @@ namespace SLNWEB.UI.Controllers
             RaporVM raporVM = new RaporVM()
             {
                 Customers = CustomerGetir(customerDal.GetCustomerList()),
-                //Years= OrderDAL.GetYears()
 
             };
 
             return View(raporVM);
         }
         [HttpPost]
-        public RaporVM RaporGetir()
+        public List<RaporVM> RaporGetir(string CustomerID,int Year)
         {
 
-            return new RaporVM();
+            return new List<RaporVM>();
         }
 
         private List<SelectListItem> CustomerGetir(List<CustomerVM> customerVMs)

@@ -22,10 +22,27 @@ namespace SLNWEB.UI.Controllers
             return View(new CustomerDAL().GetCustomerList());
         }
 
-        [HttpPost]
-        public ActionResult _UpdateCustomer(int CustomerID = 0)
+        //[HttpPost]
+        //public ActionResult _UpdateCustomer(int CustomerID = 0)
+        //{
+        //    CustomerVM customerVM = new CustomerVM();
+        //    return PartialView("_UpdateCustomer", customerVM);
+        //}
+
+        public ActionResult Update(object id)
         {
-            return PartialView("_UpdateCustomer");
+            return View(new CustomerDAL().GetCustomer(id));
+        }
+
+        [HttpPost]
+        public ActionResult Update(CustomerVM customerVM)
+        {
+            if (customerVM != null)
+            {
+                new CustomerDAL().UpdateCustomer(customerVM);
+            }
+
+            return RedirectToAction("Listeleme", "Customer");
         }
 
     }
