@@ -11,5 +11,7 @@ namespace SLNWEB.DAL.Repository
     public interface IProductDAL:IEntityRepository<Product>  
     {
         List<ProductVM> GetAllProductVMByCategoryID(object id);
+
+        int UpdateProduct(ProductVM productVM);
     }
 }

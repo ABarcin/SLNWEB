@@ -14,6 +14,8 @@ namespace SLNWEB.DAO.VM
         public List<SelectListItem> Categories { get; set; }
         public List<SelectListItem> Shippers { get; set; }
         public OrderVM Order { get; set; }
+        public OrderDetailVM OrderDetail { get; set; }
+        public CategoryVM Catagory { get; set; }
 
     }
 }

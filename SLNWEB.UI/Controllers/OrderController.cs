@@ -21,6 +21,7 @@ namespace SLNWEB.UI.Controllers
         ProductDAL productDal = new ProductDAL();
         EmployeeDAL employeeDal = new EmployeeDAL();
         ShipperDAL shipperDal = new ShipperDAL();
+        OrderDAL orderDal = new OrderDAL();
 
         [HttpGet]
         public ActionResult SatisYap()
@@ -31,12 +32,37 @@ namespace SLNWEB.UI.Controllers
                 Products = ProductGetir(productDal.GetAllProductVMByCategoryID(1)),
                 Employees=EmployeeGetir(employeeDal.GettAllEmployee()),
                 Shippers=ShipperGetir(shipperDal.GetAllShipper()),
-                Order=new OrderVM()
+                Categories=CatagoryGetir(categoryDal.GetAllCategories()),
+                Order=new OrderVM(),
+                OrderDetail=new OrderDetailVM()
             };
 
             
             return View(satisVM);
         }
+
+        private List<SelectListItem> CatagoryGetir(List<CategoryVM> categoryVMs)
+        {
+            return (from c in categoryVMs
+                    select new SelectListItem()
+                    {
+                        Text = c.CategoryName.ToUpper(),
+                        Value = c.CategoryID.ToString()
+                    }
+          ).ToList();
+        }
+
+        [HttpPost]
+        public decimal? ProductPriceGet(int productID)
+        {
+        
+            return productDal.GetProductByID(productID).UnitPrice;
+        }
+        //public List<SelectListItem> CatagoryProductGetir(int cataroryID)
+        //{
+
+        //    return ProductGetir(productDal.GetAllProductVMByCategoryID(cataroryID));
+        //}
 
         private List<SelectListItem> ShipperGetir(List<ShipperVM> shipperVMs)
         {
@@ -74,7 +100,7 @@ namespace SLNWEB.UI.Controllers
         [HttpPost]
         public ActionResult SatisYap(SatisVM satis)
         {
-            //order tabla ekle
+
             return View();
         }
 

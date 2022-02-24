@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace SLNWEB.DAL.Repository
 {
-    public interface IOrderDAL:IEntityRepository<Order>  
+    public interface IOrderDetailDAL : IEntityRepository<Order_Detail>
     {
-        int AddOrder(OrderVM orderVM);
+        int AddOrderDetail(OrderDetailVM orderDetailVM);
+
     }
 }

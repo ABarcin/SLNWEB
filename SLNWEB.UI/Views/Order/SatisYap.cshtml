@@ -3,7 +3,12 @@
     ViewBag.Title = "SatisYap";
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
 }
+<style>
+    .row {
+        margin: 10px;
+    }
 
+</style>
 
 <div class="container-fluid px-4">
     <h2 class="mt-4">Satış Sayfası </h2>
@@ -16,10 +21,20 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-3">
+                        <h5>Customer</h5>
+                    </div>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(a => a.Order.CustomerID)
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
                         <h5>Catagory</h5>
                     </div>
                     <div class="col-md-3">
-                        @Html.DropDownList("Catagories" , "Seçiniz")
+                        @Html.DropDownList("Catagories","Seçiniz")
+                        @*@Html.DropDownListFor(a=>a.Catagory.CategoryID,Model.Categories, "Seçiniz", new { @id = "catagoryID" })*@
                     </div>
 
                 </div>
@@ -28,8 +43,17 @@
                         <h5>Product</h5>
                     </div>
                     <div class="col-md-3">
-                        @Html.DropDownListFor(a=>a.Products,Model.Products, "Seçiniz", null)
+                        @Html.DropDownListFor(a => a.OrderDetail.ProductID, Model.Products, "Seçiniz", new { @id = "productID" })
 
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Price</h5>
+                    </div>
+                    <div class="col-md-3">
+                        <label id="priceID"></label>
                     </div>
 
                 </div>
@@ -53,8 +77,28 @@
                     </div>
 
                 </div>
-                <div>
-                    <input type="submit" name="name" class="btn btn-outline-primary" value="Satış Yap" />
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Quantity</h5>
+                    </div>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(a => a.OrderDetail.Quantity)
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Ship Price</h5>
+                    </div>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(a => a.OrderDetail.Quantity, new { @id = "quantityID"})
+
+                    </div>
+
+                </div>
+                <div style=" margin-top: 5%;">
+                    <input type="submit" name="name" class="btn btn-outline-primary" value="Satın Al" style=" width: 100%;" />
                 </div>
             </div>
         </div>
@@ -63,4 +107,58 @@
 
 
 </div>
+<script src="~/Scripts/jquery-3.6.0.js"></script>
+<script>
+
+
+
+    $(document).ready(function () {
+
+
+        $('#productID').change(function () {
+            var formData = { productID: $('select#productID option:selected').val() };
+
+           $.ajax({
+                url: '@Url.Action("ProductPriceGet", "Order")',
+                type: 'POST',
+                dataType: 'json',
+                contentType: 'application/json; charset=UTF-8',
+
+            data: JSON.stringify(formData),
+                success: function (data) {
+                    document.getElementById("priceID").innerHTML = data +" TL";
+                }
+            });
+
+        });
+        @*$('#catagoryID').change(function () {
+            var formData = { catagoryID: $('select#catagoryID option:selected').val() };
+
+           $.ajax({
+                url: '@Url.Action("CatagoryProductGetir", "Order")',
+                type: 'POST',
+                dataType: 'json',
+                contentType: 'application/json; charset=UTF-8',
+
+            data: JSON.stringify(formData),
+                success: function (data) {
+                   
+                }
+            });
+
+        });*@
+        $("#setText").click(function (event) {
+            var quantity = $('#quantityID').val();
+            var price = $('#priceID').val();
+            var total = quantity * price;
+            document.getElementById("totalPriceID").innerHTML = total + " TL";
+        });
+
+
+    });
+
+
+
+
+</script>
 

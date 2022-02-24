@@ -38,8 +38,10 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Activities" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,6 +53,7 @@
     <Compile Include="Mapping\CategoryMapping.cs" />
     <Compile Include="Mapping\CustomerMapping.cs" />
     <Compile Include="Mapping\EmployeeMapping.cs" />
+    <Compile Include="Mapping\OrderDetailMapping.cs" />
     <Compile Include="Mapping\OrderMapping.cs" />
     <Compile Include="Mapping\ProductMapping.cs" />
     <Compile Include="Mapping\ShipperMapping.cs" />
@@ -64,10 +67,14 @@
     <Compile Include="Repository\ICustomerDAL.cs" />
     <Compile Include="Repository\IEntityRepository.cs" />
     <Compile Include="Repository\IOrderDAL.cs" />
+    <Compile Include="Repository\IOrderDetailDAL.cs" />
     <Compile Include="Repository\IProductDAL.cs" />
+    <Compile Include="Repository\ISatisDAL.cs" />
     <Compile Include="Repository\IShipperDAL.cs" />
     <Compile Include="Repository\OrderDAL.cs" />
+    <Compile Include="Repository\OrderDetailDAL.cs" />
     <Compile Include="Repository\ProductDAL.cs" />
+    <Compile Include="Repository\SatisDAL.cs" />
     <Compile Include="Repository\ShipperDAL.cs" />
   </ItemGroup>
   <ItemGroup>
