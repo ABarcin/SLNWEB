@@ -15,32 +15,58 @@ namespace SLNWEB.UI.Controllers
         CustomerDAL customerDal = new CustomerDAL();
         OrderDAL OrderDAL = new OrderDAL();
         ReportDAL reportDAL = new ReportDAL();
-        public ActionResult Index()
+        public ActionResult Index(RaporVM raporVM=null)
         {
-            var gelen = new ReportDAL().GetReportByCustomerID("ALFKI");
-            ViewBag.Year = OrderDAL.GetYears();
-            RaporVM raporVM = new RaporVM()
+            //ViewBag.Year = OrderDAL.GetYears();
+            if (raporVM.Report==null)
             {
-                Customers = CustomerGetir(customerDal.GetCustomerList()),
-
-            };
+                raporVM = new RaporVM()
+                {
+                    Customers = CustomerGetir(customerDal.GetCustomerList()),
+                    Report = new List<CustomerOrderReportVM>()
+                };
+            }
+ 
 
             return View(raporVM);
         }
+
+        //[HttpPost]
+        //public ActionResult Index(RaporVM raporVM)
+        //{
+        //    RaporVM raporVMs = new RaporVM()
+        //    {
+        //        Customers = CustomerGetir(customerDal.GetCustomerList()),
+        //        Report = reportDAL.GetReportByCustomerID(raporVM.Customer.CustomerID)
+        //    };
+        //    return View(raporVM);
+        //}
+
         [HttpPost]
-        public IEnumerable<CustomerOrderReportVM> RaporGetir(string customerID,int year)
+        public ActionResult CustomerSatisRapor(RaporVM rapor)
         {
-            //RaporVM raporVM = new RaporVM();
-            //raporVM.Customer = new CustomerVM()
-            //{
-            //    CustomerID = customerID
-            //};
 
-            //List<CustomerOrderReportVM> raporVMs = reportDAL.GetReportByYearAndCustomerID(raporVM).Report.ToList();
-            List<CustomerOrderReportVM> raporVMs = reportDAL.GetReportByCustomerID(customerID);
+            RaporVM raporVM = new RaporVM()
+            {
+                Customers = CustomerGetir(customerDal.GetCustomerList()),
+                Report = reportDAL.GetReportByCustomerID(rapor.Customer.CustomerID)
+            };
 
-            return raporVMs;
+            return View("Index", raporVM);
         }
+
+        /// <summary>
+        /// script XMLHttpRequest için yazmıştık patladı bıraktık
+        /// </summary>
+        /// <param name="customerVMs"></param>
+        /// <returns></returns>
+        //[HttpPost]
+        //public IEnumerable<CustomerOrderReportVM> RaporGetir(string customerID,int year)
+        //{
+        //    IEnumerable<CustomerOrderReportVM> raporVMs = reportDAL.GetReportByCustomerID(customerID);
+
+        //   return raporVMs;
+        //}
 
         private List<SelectListItem> CustomerGetir(List<CustomerVM> customerVMs)
         {
@@ -51,5 +77,24 @@ namespace SLNWEB.UI.Controllers
                         Value = c.CustomerID.ToString()
                     }).ToList();
         }
+
+
+        public ActionResult CustomerRapor(RaporVM raporVM = null)
+        {
+            //ViewBag.Year = OrderDAL.GetYears();
+            if (raporVM.Report == null)
+            {
+                raporVM = new RaporVM()
+                {
+                    Customers = CustomerGetir(customerDal.GetCustomerList()),
+                    Report = new List<CustomerOrderReportVM>()
+                };
+            }
+
+
+            return View(raporVM);
+        }
+
+
     }
 }
