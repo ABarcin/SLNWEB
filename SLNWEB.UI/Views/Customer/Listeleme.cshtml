@@ -3,35 +3,12 @@
     ViewBag.Title = "Listeleme";
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
 }
+@using SLNWEB.DAO.VM
+@model  List<CustomerVM>
 
 <div class="container-fluid px-4">
-    <h2 class="mt-4">Raporlama</h2>
+    <h2 class="mt-4">Customer Listele</h2>
 
-    <div class="card mb-4">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-3">
-                    <h5>Customer</h5>
-                </div>
-                <div class="col-md-3">
-                    @Html.DropDownListFor(a => a.Customer.CustomerID, Model.Customers, "Seçiniz", null)
-                </div>
-            </div>
-            <br />
-            <div class="row">
-                <div class="col-md-3">
-                    <h5>Year</h5>
-                </div>
-                <div class="col-md-3">
-                    @Html.TextBoxFor(a => a.Year)
-                </div>
-            </div>
-            <br />
-            <div class="row">
-                <input type="button" class="btn btn-outline-secondary" value="Listele" onclick="Listele()" />
-            </div>
-        </div>
-    </div>
     <div class="card mb-4">
         <div class="card-header">
         </div>
@@ -39,25 +16,55 @@
             <table id="datatablesSimple">
                 <thead>
                     <tr>
-                        <th>Customer</th>
-                        <th>Year</th>
-                        <th>Price</th>
+                        <th>CustomerID</th>
+                        <th>CompanyName</th>
+                        <th>ContactName</th>
+                        <th>ContactTitle</th>
+                        <th>Address</th>
+                        <th>City</th>
+                         <th>PostalCode</th>
+                        <th>Country</th>
+                        <th></th>
                         <th></th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>Customer</th>
-                        <th>Year</th>
-                        <th>Total</th>
+                        <th>CustomerID</th>
+                        <th>CompanyName</th>
+                        <th>ContactName</th>
+                        <th>ContactTitle</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>PostalCode</th>
+                        <th>Country</th>
+                        <th></th>
                         <th></th>
                     </tr>
                 </tfoot>
                 <tbody>
-                    @*@foreach (var item in collection)
-                        {
-                            <tr><td>Customer</td><td>Year</td><td>Total</td><td>Total Pric</td></tr>
-                        }*@
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th>@item.CustomerID</th>
+                            <th>@item.CompanyName</th>
+                            <th>@item.ContactName</th>
+                            <th>@item.ContactTitle</th>
+                            <th>@item.Address</th>
+                            <th>@item.City</th>
+                            <th>@item.PostalCode</th>
+                            <th>@item.Country</th>
+                            <td>
+                                <button class="btn btn-danger" onclick="silTeshis(@item.CustomerID)">Sil</button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="@Url.Action("_UpdateCustomer","Customer",new { CustomerID = item.CustomerID  })">
+                                    Düzenle
+                                </button>
+
+                            </td>
+                        </tr>
+                    }
 
 
                 </tbody>
@@ -65,4 +72,10 @@
         </div>
     </div>
 </div>
+<script>
+
+
+
+
+</script>
 
