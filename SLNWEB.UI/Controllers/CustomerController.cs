@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SLNWEB.DAL.Repository;
+using SLNWEB.DAO.VM;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,9 +15,17 @@ namespace SLNWEB.UI.Controllers
         {
             return View();
         }
+
+        [HttpGet]
         public ActionResult Listeleme()
         {
-            return View();
+            return View(new CustomerDAL().GetCustomerList());
+        }
+
+        [HttpPost]
+        public ActionResult _UpdateCustomer(int CustomerID = 0)
+        {
+            return PartialView("_UpdateCustomer");
         }
 
     }

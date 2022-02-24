@@ -16,10 +16,12 @@ namespace SLNWEB.UI.Controllers
         OrderDAL OrderDAL = new OrderDAL();
         public ActionResult Index()
         {
+            ViewBag.Year = OrderDAL.GetYears();
             RaporVM raporVM = new RaporVM()
             {
-                Customers = CustomerGetir(customerDal.GetCustomerList())
-                
+                Customers = CustomerGetir(customerDal.GetCustomerList()),
+                //Years= OrderDAL.GetYears()
+
             };
 
             return View(raporVM);

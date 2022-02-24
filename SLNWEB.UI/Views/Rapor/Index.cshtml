@@ -3,6 +3,10 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
 }
+@{
+    List<int> Year = (List<int>)ViewBag.Year;
+
+}
 @model SLNWEB.DAO.VM.RaporVM
 
 <div class="container-fluid px-4">
@@ -15,7 +19,7 @@
                     <h5>Customer</h5>
                 </div>
                 <div class="col-md-3">
-                    @Html.DropDownListFor(a => a.Customer.CustomerID, Model.Customers, "Seçiniz",null)
+                    @Html.DropDownListFor(a => a.Customer.CustomerID, Model.Customers, "Seçiniz", null)
                 </div>
             </div>
             <br />
@@ -24,7 +28,8 @@
                     <h5>Year</h5>
                 </div>
                 <div class="col-md-3">
-                    @Html.TextBoxFor(a => a.Year)
+                    @*@Html.DropDownListFor(a => a.Year, Model.Years, "Seçiniz", null)*@
+                    @Html.DropDownList("Year", new SelectList(Year))
                 </div>
             </div>
             <br />
@@ -68,8 +73,9 @@
 </div>
 <script>
     function Listele() {
+        debugger;
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "Rapor/RaporGetir", true);
+        xhr.open("POST", "/Rapor/RaporGetir", true);
         xhr.send();
         xhr.onreadystatechange = function () {
 
@@ -79,7 +85,7 @@
             if (this.readyState == 4 && this.status == 200) {
 
                 JSON.parse(this.responseText).forEach(function (data, index) {
-                    tbody.innerHTML += "<tr><td>" + data.Customer.CustomerID + "</td><td>" + data.Year + "</td><td>" + data.Price +"</td><td> - </td></tr>"
+                    tbody.innerHTML += "<tr><td>" + data.Customer.CustomerID + "</td><td>" + data.Year + "</td><td>" + data.Price + "</td><td> - </td></tr>"
 
                 });
             }

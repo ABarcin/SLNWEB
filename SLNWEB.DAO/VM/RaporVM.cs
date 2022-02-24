@@ -10,8 +10,9 @@ namespace SLNWEB.DAO.VM
     public class RaporVM
     {
         public List<SelectListItem> Customers { get; set; }
-        public DateTime Year { get; set; }
+        public List<int> Years { get; set; }
         public CustomerVM Customer { get; set; }
-        public decimal Price { get; set; }
+
+        public List<CustomerOrderReportVM> Report { get; set; }
     }
 }
