@@ -84,17 +84,17 @@ namespace SLNWEB.UI.Controllers
         [HttpPost]
         public ActionResult SatisYap(SatisVM satis)
         {
-            if (ModelState.IsValid&&satis!=null)
+            //if (ModelState.IsValid&&satis!=null)
+            //{
+            int value = satisDal.AddSatis(satis);
+            //order tabla ekle
+            if (value > 0)
             {
-                int value = satisDal.AddSatis(satis);
-                //order tabla ekle
-                if (value > 0)
-                {
-                    return RedirectToAction("Index");
-                }
+                return RedirectToAction("SatisYap");
             }
-            
-            return View();
+            //}
+
+            return RedirectToAction("SatisYap");
         }
 
     }
