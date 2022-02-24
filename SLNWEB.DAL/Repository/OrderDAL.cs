@@ -17,5 +17,10 @@ namespace SLNWEB.DAL.Repository
             return value;
 
         }
+
+        public List<int> GetYears()
+        {
+            return this.GetAll().Select(x => x.OrderDate.Value.Year).Distinct().ToList();
+        }
     }
 }

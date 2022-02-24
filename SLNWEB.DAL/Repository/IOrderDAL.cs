@@ -11,5 +11,6 @@ namespace SLNWEB.DAL.Repository
     public interface IOrderDAL:IEntityRepository<Order>  
     {
         int AddOrder(OrderVM orderVM);
+        List<int> GetYears();
     }
 }
