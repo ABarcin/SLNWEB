@@ -11,6 +11,7 @@ namespace SLNWEB.DAL.Repository
     {
         public RaporVM GetReportByYearAndCustomerID(RaporVM raporVM)
         {
+            raporVM.Report = new List<CustomerOrderReportVM>();
             raporVM.Report = (from c in new CustomerDAL().GetCustomerList()
                               join o in new OrderDAL().GetAllOrders() on c.CustomerID equals o.CustomerID
                               join od in new OrderDetailDAL().GetAllOrderDetails() on o.OrderID equals od.OrderID

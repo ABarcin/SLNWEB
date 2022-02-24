@@ -14,6 +14,7 @@ namespace SLNWEB.UI.Controllers
 
         CustomerDAL customerDal = new CustomerDAL();
         OrderDAL OrderDAL = new OrderDAL();
+        ReportDAL reportDAL = new ReportDAL();
         public ActionResult Index()
         {
             ViewBag.Year = OrderDAL.GetYears();
@@ -26,10 +27,17 @@ namespace SLNWEB.UI.Controllers
             return View(raporVM);
         }
         [HttpPost]
-        public List<RaporVM> RaporGetir(string CustomerID,int Year)
+        public List<CustomerOrderReportVM> RaporGetir(string customerID,int year)
         {
+            RaporVM raporVM = new RaporVM();
+            raporVM.Customer = new CustomerVM()
+            {
+                CustomerID = customerID
+            };
+             
+            List<CustomerOrderReportVM> raporVMs = reportDAL.GetReportByYearAndCustomerID(raporVM).Report.ToList();
 
-            return new List<RaporVM>();
+            return raporVMs;
         }
 
         private List<SelectListItem> CustomerGetir(List<CustomerVM> customerVMs)

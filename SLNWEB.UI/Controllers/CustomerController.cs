@@ -44,6 +44,22 @@ namespace SLNWEB.UI.Controllers
 
             return RedirectToAction("Listeleme", "Customer");
         }
+        public ActionResult Add()
+        {
+            return View(new CustomerVM());
+        }
+
+        [HttpPost]
+        public ActionResult Add(CustomerVM customerVM)
+        {
+            if (ModelState.IsValid)
+            {
+                new CustomerDAL().AddCustomer(customerVM);
+                return RedirectToAction("Listeleme", "Customer");
+            }
+
+            return View(customerVM);
+        }
 
     }
 }

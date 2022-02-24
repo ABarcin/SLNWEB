@@ -171,6 +171,7 @@
     <Content Include="Views\Customer\Listeleme.cshtml" />
     <Content Include="Views\Customer\_UpdateCustomer.cshtml" />
     <Content Include="Views\Customer\Update.cshtml" />
+    <Content Include="Views\Customer\Add.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

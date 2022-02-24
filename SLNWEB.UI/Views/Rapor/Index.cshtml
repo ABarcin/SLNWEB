@@ -78,8 +78,8 @@
         let cus = $('select#customerID option:selected').val();
         let year = $('select#year option:selected').val();
         let data = new FormData();
-        data.append('CustomerID', cus );
-        data.append('Year', year);
+        data.append('customerID', cus );
+        data.append('year', year);
 
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "/Rapor/RaporGetir", true);
@@ -92,7 +92,7 @@
             if (this.readyState == 4 && this.status == 200) {
 
                 JSON.parse(this.responseText).forEach(function (data, index) {
-                    tbody.innerHTML += "<tr><td>" + data.Customer.CustomerID + "</td><td>" + data.Year + "</td><td>" + data.Price + "</td><td> - </td></tr>"
+                    tbody.innerHTML += "<tr><td>" + data.CustomerName + "</td><td>" + data.Count + "</td><td>" + data.Price + "</td><td> " + data.OrderDate+" </td></tr>"
 
                 });
             }
