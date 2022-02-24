@@ -23,6 +23,7 @@ namespace SLNWEB.UI.Controllers
         [HttpGet]
         public ActionResult SatisYap()
         {
+
             return View((new SatisVM()
             {
                 Categories = GetCategories(categoryDal.GetAllCategories()),
@@ -84,15 +85,17 @@ namespace SLNWEB.UI.Controllers
         [HttpPost]
         public ActionResult SatisYap(SatisVM satis)
         {
-            //if (ModelState.IsValid&&satis!=null)
-            //{
-            int value = satisDal.AddSatis(satis);
-            //order tabla ekle
-            if (value > 0)
+            ViewBag.msg = "0";
+
+            if (ModelState.IsValid && satis != null)
             {
-                return RedirectToAction("SatisYap");
+                int value = satisDal.AddSatis(satis);
+                    if (value > 0)
+                    {
+                        ViewBag.msg = "1";
+                        return RedirectToAction("SatisYap");
+                    }
             }
-            //}
 
             return RedirectToAction("SatisYap");
         }

@@ -7,12 +7,11 @@
     .row {
         margin: 10px;
     }
-
 </style>
 
 <div class="container-fluid px-4">
-    <h2 class="mt-4">Satış Sayfası </h2>
-
+    <h2 class="mt-4">Satış İşlemi </h2>
+    <br />
     @using (Html.BeginForm("SatisYap", "Order", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
@@ -34,7 +33,7 @@
                     </div>
                     <div class="col-md-3">
                         @*@Html.DropDownList("Categories","Seçiniz")*@
-                        @Html.DropDownListFor(a=>a.Catagory.CategoryID,Model.Categories, "Seçiniz", new { @id = "catagoryID" })
+                        @Html.DropDownListFor(a => a.Catagory.CategoryID, Model.Categories, "Seçiniz", new { @id = "catagoryID" })
                     </div>
 
                 </div>
@@ -92,11 +91,29 @@
                         <h5>Ship Price</h5>
                     </div>
                     <div class="col-md-3">
-                        @Html.TextBoxFor(a => a.OrderDetail.Quantity, new { @id = "quantityID"})
+                        @Html.TextBoxFor(a => a.OrderDetail.Quantity, new { @id = "quantityID" })
 
                     </div>
 
                 </div>
+
+                @if (ViewBag.msg == "1")
+                {
+                    <div class="alert alert-success">
+                        <h4>Başarılı!</h4>
+                        Satış İşlemi Başarı
+
+                    </div>
+                }
+                else if(ViewBag.msg == "0")
+                {
+                    <div class="alert alert-warning">
+                        <h4>Hata Oluştu</h4>
+                        Lütfen Değerleri doğru girdiğinizden emin olunuz...
+
+                    </div>
+                }
+
                 <div style=" margin-top: 5%;">
                     <input type="submit" name="name" class="btn btn-outline-primary" value="Satın Al" style=" width: 100%;" />
                 </div>
@@ -142,7 +159,7 @@
 
             data: JSON.stringify(formData),
                 success: function (data) {
-                   
+
                 }
             });
 
