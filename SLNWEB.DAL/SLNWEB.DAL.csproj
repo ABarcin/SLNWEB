@@ -72,11 +72,13 @@
     <Compile Include="Repository\IOrderDAL.cs" />
     <Compile Include="Repository\IOrderDetailDAL.cs" />
     <Compile Include="Repository\IProductDAL.cs" />
+    <Compile Include="Repository\IReportDAL.cs" />
     <Compile Include="Repository\ISatisDAL.cs" />
     <Compile Include="Repository\IShipperDAL.cs" />
     <Compile Include="Repository\OrderDAL.cs" />
     <Compile Include="Repository\OrderDetailDAL.cs" />
     <Compile Include="Repository\ProductDAL.cs" />
+    <Compile Include="Repository\ReportDAL.cs" />
     <Compile Include="Repository\SatisDAL.cs" />
     <Compile Include="Repository\ShipperDAL.cs" />
   </ItemGroup>
