@@ -170,6 +170,7 @@
     <Content Include="Scripts\jquery-3.6.0.min.map" />
     <Content Include="Views\Customer\Listeleme.cshtml" />
     <Content Include="Views\Customer\_UpdateCustomer.cshtml" />
+    <Content Include="Views\Customer\Update.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,4 +1,5 @@
-﻿
+﻿@using SLNWEB.DAO.VM
+@model CustomerVM
 
 <div class="modal" id="myModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -10,10 +11,32 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>Modal body text goes here.</p>
+                @using (Html.BeginForm("Update", "Customer", FormMethod.Post))
+                {
+                    <div>
+                        <table class="table table-bordered table-danger table-hover">
+                            <tr><td>@Html.EditorFor(x => x.CustomerID)</td></tr>
+                            <tr><td>@Html.EditorFor(x => x.CompanyName)</td></tr>
+                            <tr><td>@Html.EditorFor(x => x.ContactName)</td></tr>
+                            <tr><td>@Html.EditorFor(x => x.ContactTitle)</td></tr>
+                            <tr><td>@Html.EditorFor(x => x.Address)</td></tr>
+                            <tr><td>@Html.EditorFor(x => x.City)</td></tr>
+                            <tr><td>@Html.EditorFor(x => x.Region)</td></tr>
+                            <tr><td>@Html.EditorFor(x => x.PostalCode)</td></tr>
+                            <tr><td>@Html.EditorFor(x => x.Country)</td></tr>
+                            <tr><td>@Html.EditorFor(x => x.Phone)</td></tr>
+                            <tr><td>@Html.EditorFor(x => x.Fax)</td></tr>
+                        </table>
+                    </div>
+
+                    <div>
+                        <input type="submit" value="Update Customer" class="btn btn-info" />
+                    </div>
+
+                }
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
+                @*<button type="button" class="btn btn-primary">Save changes</button>*@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>

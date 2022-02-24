@@ -22,7 +22,7 @@
                         <th>ContactTitle</th>
                         <th>Address</th>
                         <th>City</th>
-                         <th>PostalCode</th>
+                        <th>PostalCode</th>
                         <th>Country</th>
                         <th></th>
                         <th></th>
@@ -55,13 +55,13 @@
                             <th>@item.PostalCode</th>
                             <th>@item.Country</th>
                             <td>
-                                <button class="btn btn-danger" onclick="silTeshis(@item.CustomerID)">Sil</button>
+                                <button class="btn btn-danger" onclick="silTeshis(@item.CustomerID)">Detele</button>
                             </td>
                             <td>
-                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="@Url.Action("_UpdateCustomer","Customer",new { CustomerID = item.CustomerID  })">
+                                @*<button type="button" class="btn btn-warning" data-toggle="modal" data-target="@Url.Action("_UpdateCustomer","Customer",new { CustomerID = item.CustomerID  })">
                                     Düzenle
-                                </button>
-
+                                </button>*@
+                                <a href="/Customer/Update/@item.CustomerID" class="btn btn-outline-warning">Update</a>
                             </td>
                         </tr>
                     }
@@ -73,9 +73,6 @@
     </div>
 </div>
 <script>
-
-
-
 
 </script>
 

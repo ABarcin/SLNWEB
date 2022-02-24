@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+@using SLNWEB.DAO.VM
+@model CustomerVM
+
+<div class="container-fluid px-4">
+    <h2 class="mt-4">Customer Update </h2>
+    <br />
+    @using (Html.BeginForm("Update", "Customer", FormMethod.Post))
+    {
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>CompanyName</h5>
+                    </div>
+                    <div class="col-md-3">
+                        @Html.EditorFor(x => x.CompanyName)
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>ContactName</h5>
+                    </div>
+                    <div class="col-md-3">
+                        @Html.EditorFor(x => x.ContactName)
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>ContactTitle</h5>
+                    </div>
+                    <div class="col-md-3">
+                        @Html.EditorFor(x => x.ContactTitle)
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Address</h5>
+                    </div>
+                    <div class="col-md-3">
+                        @Html.EditorFor(x => x.Address)
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>City</h5>
+                    </div>
+                    <div class="col-md-3">
+                        @Html.EditorFor(x => x.City)
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Region</h5>
+                    </div>
+                    <div class="col-md-3">
+                        @Html.EditorFor(x => x.Region)
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>PostalCode</h5>
+                    </div>
+                    <div class="col-md-3">
+                        @Html.EditorFor(x => x.PostalCode)
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Country</h5>
+                    </div>
+                    <div class="col-md-3">
+                        @Html.EditorFor(x => x.Country)
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Phone</h5>
+                    </div>
+                    <div class="col-md-3">
+                        @Html.EditorFor(x => x.Phone)
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Fax</h5>
+                    </div>
+                    <div class="col-md-3">
+                        @Html.EditorFor(x => x.Fax)
+
+                    </div>
+                </div>
+                @if (ViewBag.msg == "1")
+                {
+                    <div class="alert alert-success">
+                        <h4>Başarılı!</h4>
+                        Satış İşlemi Başarı
+
+                    </div>
+                }
+                else if (ViewBag.msg == "0")
+                {
+                    <div class="alert alert-warning">
+                        <h4>Hata Oluştu</h4>
+                        Lütfen Değerleri doğru girdiğinizden emin olunuz...
+
+                    </div>
+                }
+
+                <div style=" margin-top: 5%;">
+                    <input type="submit" name="name" class="btn btn-outline-primary" value="Update Customer" style=" width: 40%;" />
+                </div>
+            </div>
+        </div>
+
+
+    }
+
+</div>
