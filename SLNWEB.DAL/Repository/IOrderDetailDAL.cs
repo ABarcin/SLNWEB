@@ -11,6 +11,7 @@ namespace SLNWEB.DAL.Repository
     public interface IOrderDetailDAL : IEntityRepository<Order_Detail>
     {
         int AddOrderDetail(OrderDetailVM orderDetailVM);
+        List<OrderDetailVM> GetAllOrderDetails();
 
     }
 }

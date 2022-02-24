@@ -15,11 +15,8 @@ namespace SLNWEB.UI.Controllers
         {
             return View();
         }
-
         CategoryDAL categoryDal = new CategoryDAL();
         SatisDAL satisDal = new SatisDAL();
-        //ICategoryDAL _catagoryDal;
-
         [HttpGet]
         public ActionResult SatisYap()
         {
