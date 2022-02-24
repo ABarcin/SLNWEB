@@ -28,7 +28,7 @@ namespace SLNWEB.UI.Controllers
             if (ModelState.IsValid)
             {
                 new CustomerDemographicDAL().AddCustomerDemographic(customerDemographicVM);
-                return RedirectToAction("Add");
+                return RedirectToAction("Add","CustomerDemographics");
             }
             return View(customerDemographicVM);
         }
