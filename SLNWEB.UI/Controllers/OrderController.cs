@@ -87,15 +87,14 @@ namespace SLNWEB.UI.Controllers
         {
             ViewBag.msg = "0";
 
-            if (ModelState.IsValid && satis != null)
+
+            int value = satisDal.AddSatis(satis);
+            if (value > 0)
             {
-                int value = satisDal.AddSatis(satis);
-                    if (value > 0)
-                    {
-                        ViewBag.msg = "1";
-                        return RedirectToAction("SatisYap");
-                    }
+                ViewBag.msg = "1";
+                return RedirectToAction("SatisYap");
             }
+
 
             return RedirectToAction("SatisYap");
         }

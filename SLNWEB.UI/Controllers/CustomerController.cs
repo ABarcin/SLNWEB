@@ -1,6 +1,4 @@
-﻿using SLNWEB.DAL.Repository;
-using SLNWEB.DAO.VM;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,58 +8,15 @@ namespace SLNWEB.UI.Controllers
 {
     public class CustomerController : Controller
     {
+        // GET: Customer
         public ActionResult Index()
         {
-            return View(new CustomerDAL().GetCustomerList());
+            return View();
         }
-
-        public ActionResult Add()
+        public ActionResult Listeleme()
         {
-            return View(new CustomerVM());
+            return View();
         }
 
-        [HttpPost]
-        public ActionResult Add(CustomerVM customerVM)
-        {
-            if (ModelState.IsValid)
-            {
-                new CustomerDAL().AddCustomer(customerVM);
-                return RedirectToAction("Index", "Customer");
-            }
-
-            return View(customerVM);
-        }
-
-        public ActionResult Delete(object id)
-        { 
-            return View(new CustomerDAL().GetCustomer(id));
-        }
-
-        [HttpPost]
-        public ActionResult Delete(CustomerVM customerVM)
-        {
-            if (customerVM != null)
-            {
-                new CustomerDAL().DeleteCustomer(customerVM);
-            }
-
-            return RedirectToAction("Index", "Customer");
-        }
-
-        public ActionResult Update(object id)
-        {
-            return View(new CustomerDAL().GetCustomer(id));
-        }
-
-        [HttpPost]
-        public ActionResult Update(CustomerVM customerVM)
-        {
-            if (customerVM != null)
-            {
-                new CustomerDAL().UpdateCustomer(customerVM);
-            }
-
-            return RedirectToAction("Index", "Customer");
-        }
     }
 }
