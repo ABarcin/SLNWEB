@@ -16,6 +16,7 @@ namespace SLNWEB.UI.Controllers
         OrderDAL OrderDAL = new OrderDAL();
         public ActionResult Index()
         {
+            var gelen = new ReportDAL().GetReportByCustomerID("ALFKI");
             ViewBag.Year = OrderDAL.GetYears();
             RaporVM raporVM = new RaporVM()
             {

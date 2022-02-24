@@ -13,13 +13,16 @@ namespace SLNWEB.UI.Controllers
         // GET: Order
         public ActionResult Index()
         {
+            var gelen = reportDAL.GetReportByCustomerID("ALFKI");
             return View();
         }
         CategoryDAL categoryDal = new CategoryDAL();
         SatisDAL satisDal = new SatisDAL();
+        ReportDAL reportDAL = new ReportDAL();
         [HttpGet]
         public ActionResult SatisYap()
         {
+           
 
             return View((new SatisVM()
             {
