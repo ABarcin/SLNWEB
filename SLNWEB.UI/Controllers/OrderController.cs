@@ -35,6 +35,12 @@ namespace SLNWEB.UI.Controllers
             }));
         }
 
+        public decimal? ProductPriceGet(int productID)
+        {
+            ProductDAL productDal = new ProductDAL();
+            return productDal.GetProductByID(productID).UnitPrice;
+        }
+
         private List<SelectListItem> GetShippers(List<ShipperVM> shipperVMs)
         {
             return (from s in shipperVMs
