@@ -16,9 +16,9 @@ namespace SLNWEB.DAO.VM
         [Required]
         public int ProductID { get; set; }
         [Required]
-        public decimal UnitPrice { get; set; }
+        public decimal? UnitPrice { get; set; }
         [Required]
-        public short Quantity { get; set; }
+        public short? Quantity { get; set; }
         [Required]
         public float Discount { get; set; }
 
