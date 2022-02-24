@@ -125,6 +125,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\CustomerDemographicsController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\RaporController.cs" />
     <Compile Include="Global.asax.cs">
@@ -163,6 +164,9 @@
     <Content Include="Views\Rapor\Index.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Customer\Add.cshtml" />
+    <Content Include="Views\CustomerDemographics\Index.cshtml" />
+    <Content Include="Views\CustomerDemographics\Add.cshtml" />
+    <Content Include="Views\CustomerDemographics\Delete.cshtml" />
     <Content Include="Views\Customer\Delete.cshtml" />
     <Content Include="Views\Customer\Update.cshtml" />
     <None Include="Web.Debug.config">

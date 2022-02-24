@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Customer Demographics";
+    Layout = "~/Views/Shared/_LayoutPageSatis.cshtml";
+}
+@using SLNWEB.DAO.VM
+@model List<CustomerDemographicVM>
+
+<h2>Index</h2>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.CustomerTypeID</td>
+                        <td>@item.CustomerDesc</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>
