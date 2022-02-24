@@ -131,6 +131,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\CustomerDemographicsController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\RaporController.cs" />
     <Compile Include="Global.asax.cs">

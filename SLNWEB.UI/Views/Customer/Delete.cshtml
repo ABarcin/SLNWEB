@@ -1,0 +1,19 @@
+﻿
+@{
+    Layout = null;
+}
+@using SLNWEB.DAO.VM
+@model CustomerVM
+<!DOCTYPE html>
+
+<h3>DELETE</h3>
+
+@using (Html.BeginForm("Delete", "Customer", FormMethod.Post))
+{
+    @Html.TextBoxFor(x => x.CustomerID)
+    <div>
+        <input type="submit" value="Delete Customer" class="btn btn-info" />
+    </div>
+
+}
+

@@ -10,7 +10,6 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
     <title>Add</title>
 </head>
 <body>
@@ -20,10 +19,11 @@
         {
             @Html.AntiForgeryToken()
             <div>
-
                 CustomerID:@Html.EditorFor(a => a.CustomerID)
                 <br />
                 CompanyName:@Html.EditorFor(a => a.CompanyName)
+                <br />
+                
             </div>
 
             <input type="submit" name="name" value="Add Customer" />

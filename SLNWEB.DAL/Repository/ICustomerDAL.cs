@@ -15,5 +15,9 @@ namespace SLNWEB.DAL.Repository
         CustomerVM GetCustomer(object id);
 
         int AddCustomer(CustomerVM customer);
+
+        int DeleteCustomer(CustomerVM customer);
+
+        int UpdateCustomer(CustomerVM customer);
     }
 }

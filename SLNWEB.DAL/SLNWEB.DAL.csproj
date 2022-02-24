@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mapping\CategoryMapping.cs" />
+    <Compile Include="Mapping\CustomerDemographicMapping.cs" />
     <Compile Include="Mapping\CustomerMapping.cs" />
     <Compile Include="Mapping\EmployeeMapping.cs" />
     <Compile Include="Mapping\OrderDetailMapping.cs" />
@@ -59,10 +60,12 @@
     <Compile Include="Mapping\ShipperMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CategoryDAL.cs" />
+    <Compile Include="Repository\CustomerDemographicDAL.cs" />
     <Compile Include="Repository\EmployeeDAL.cs" />
     <Compile Include="Repository\CustomerDAL.cs" />
     <Compile Include="Repository\EntityRepository.cs" />
     <Compile Include="Repository\ICategoryDAL.cs" />
+    <Compile Include="Repository\ICustomerDemographicDAL.cs" />
     <Compile Include="Repository\IEmployeeDAL.cs" />
     <Compile Include="Repository\ICustomerDAL.cs" />
     <Compile Include="Repository\IEntityRepository.cs" />
