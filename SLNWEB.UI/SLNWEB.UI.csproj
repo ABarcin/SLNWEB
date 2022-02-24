@@ -166,6 +166,7 @@
     <Content Include="Views\Customer\Add.cshtml" />
     <Content Include="Views\CustomerDemographics\Index.cshtml" />
     <Content Include="Views\CustomerDemographics\Add.cshtml" />
+    <Content Include="Views\CustomerDemographics\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

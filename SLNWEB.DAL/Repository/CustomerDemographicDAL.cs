@@ -16,6 +16,11 @@ namespace SLNWEB.DAL.Repository
             return Add(new CustomerDemographicMapping().CustomerDemographicVMToCustomerDemographic(customerDemographic));
         }
 
+        public int Delete(CustomerDemographicVM customerDemographicVM)
+        {
+            return Delete(new CustomerDemographicMapping().CustomerDemographicVMToCustomerDemographic(customerDemographicVM));
+        }
+
         public List<CustomerDemographicVM> GetCustomerDemographicList()
         {
             return new CustomerDemographicMapping().ListCustomerDemographicToListCustomerDemographicVM(GetAll().ToList());
