@@ -20,6 +20,10 @@ namespace SLNWEB.UI.Controllers
         {
             return View(new CustomerDemographicVM());
         }
+        public ActionResult Delete()
+        {
+            return View(new CustomerDemographicVM());
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -39,7 +43,7 @@ namespace SLNWEB.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                new CustomerDemographicDAL().AddCustomerDemographic(customerDemographicVM);
+                new CustomerDemographicDAL().DeleteCustomerDemographic(customerDemographicVM);
                 return RedirectToAction("Delete","CustomerDemographics");
             }
             return View(customerDemographicVM);

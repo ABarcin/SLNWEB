@@ -14,6 +14,6 @@ namespace SLNWEB.DAL.Repository
 
         int AddCustomerDemographic(CustomerDemographicVM customerDemographic);
 
-        int Delete(CustomerDemographicVM customerDemographic);
+        int DeleteCustomerDemographic(CustomerDemographicVM customerDemographic);
     }
 }
