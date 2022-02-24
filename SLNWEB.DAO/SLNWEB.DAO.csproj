@@ -71,6 +71,7 @@
     <Compile Include="VM\OrderDetailVM.cs" />
     <Compile Include="VM\OrderVM.cs" />
     <Compile Include="VM\ProductVM.cs" />
+    <Compile Include="VM\RaporVM.cs" />
     <Compile Include="VM\SatisVM.cs" />
     <Compile Include="VM\SatisYapVM.cs" />
     <Compile Include="VM\ShipperVM.cs" />

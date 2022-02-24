@@ -1,4 +1,5 @@
 ﻿using SLNWEB.DAL.Repository;
+using SLNWEB.DAO.VM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,28 @@ namespace SLNWEB.UI.Controllers
         OrderDAL OrderDAL = new OrderDAL();
         public ActionResult Index()
         {
-            return View();
+            RaporVM raporVM = new RaporVM()
+            {
+                Customers = CustomerGetir(customerDal.GetCustomerList())
+                
+            };
+
+            return View(raporVM);
+        }
+        public RaporVM RaporGetir()
+        {
+
+            return new RaporVM();
         }
 
-     
+        private List<SelectListItem> CustomerGetir(List<CustomerVM> customerVMs)
+        {
+            return (from c in customerVMs
+                    select new SelectListItem()
+                    {
+                        Text = c.CompanyName.ToUpper(),
+                        Value = c.CustomerID.ToString()
+                    }).ToList();
+        }
     }
 }
