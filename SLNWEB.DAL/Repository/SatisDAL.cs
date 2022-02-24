@@ -13,7 +13,7 @@ namespace SLNWEB.DAL.Repository
 {
     public class SatisDAL : ISatisDAL
     {
-        public int AddSatis(SatisYapVM satisVM)
+        public int AddSatis(SatisVM satisVM)
         {
             int donenDeger = 0;
             using (TransactionScope scope = new TransactionScope())
@@ -21,19 +21,19 @@ namespace SLNWEB.DAL.Repository
                 ProductDAL productDAL = new ProductDAL();
                 try
                 {
-                    int value = new OrderDAL().AddOrder(satisVM.OrderVM);
+                    int value = new OrderDAL().AddOrder(satisVM.Order);
                     if (value > 0)
                     {
                         int orderID = new OrderDAL().GetAll().OrderByDescending(x => x.OrderID).First().OrderID;
-                        satisVM.OrderDetailVM.OrderID = orderID;
-                        satisVM.OrderDetailVM.UnitPrice = productDAL.GetAll(x => x.ProductID == satisVM.OrderDetailVM.ProductID).SingleOrDefault().UnitPrice;
-                        if (productDAL.GetAll(x => x.ProductID == satisVM.OrderDetailVM.ProductID).SingleOrDefault().UnitsInStock > satisVM.OrderDetailVM.Quantity)
+                        satisVM.OrderDetail.OrderID = orderID;
+                        satisVM.OrderDetail.UnitPrice = productDAL.GetAll(x => x.ProductID == satisVM.OrderDetail.ProductID).SingleOrDefault().UnitPrice;
+                        if (productDAL.GetAll(x => x.ProductID == satisVM.OrderDetail.ProductID).SingleOrDefault().UnitsInStock > satisVM.OrderDetail.Quantity)
                         {
-                            int deger = new OrderDetailDAL().AddOrderDetail(satisVM.OrderDetailVM);
+                            int deger = new OrderDetailDAL().AddOrderDetail(satisVM.OrderDetail);
                             if (deger > 0)
                             {
-                                Product p = productDAL.GetAll(x => x.ProductID == satisVM.OrderDetailVM.ProductID).SingleOrDefault();
-                                p.UnitsInStock = (short?)(p.UnitsInStock - satisVM.OrderDetailVM.Quantity);
+                                Product p = productDAL.GetAll(x => x.ProductID == satisVM.OrderDetail.ProductID).SingleOrDefault();
+                                p.UnitsInStock = (short?)(p.UnitsInStock - satisVM.OrderDetail.Quantity);
                                 donenDeger = productDAL.Update(p);
                                 if (donenDeger > 0)
                                 {
@@ -47,7 +47,6 @@ namespace SLNWEB.DAL.Repository
                 {
 
                 }
-
             }
             return donenDeger;
         }

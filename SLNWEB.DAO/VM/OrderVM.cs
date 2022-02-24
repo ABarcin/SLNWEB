@@ -17,16 +17,16 @@ namespace SLNWEB.DAO.VM
 
         public int? EmployeeID { get; set; }
 
-        public DateTime? OrderDate { get; set; }
+        public DateTime? OrderDate { get; set; } = DateTime.Now;
 
-        public DateTime? RequiredDate { get; set; }
+        public DateTime? RequiredDate { get; set; } = DateTime.Now.AddDays(3);
 
         public DateTime? ShippedDate { get; set; }
 
         public int? ShipVia { get; set; }
 
         [Column(TypeName = "money")]
-        public decimal? Freight { get; set; }
+        public decimal? Freight { get; set; } = 50;
 
         [StringLength(40)]
         public string ShipName { get; set; }
