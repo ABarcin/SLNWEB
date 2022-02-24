@@ -9,6 +9,6 @@ namespace SLNWEB.DAL.Repository
 {
     public interface IReportDAL
     {
-        RaporVM GetReportByYearAndCustomerID(RaporVM raporVM);
+        List<CustomerOrderReportVM> GetReportByCustomerID(string customerID);
     }
 }

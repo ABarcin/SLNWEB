@@ -1,4 +1,5 @@
-﻿using SLNWEB.DAO.VM;
+﻿using SLNWEB.Core;
+using SLNWEB.DAO.VM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,22 +10,21 @@ namespace SLNWEB.DAL.Repository
 {
     public class ReportDAL : IReportDAL
     {
-        public RaporVM GetReportByYearAndCustomerID(RaporVM raporVM)
+        public List<CustomerOrderReportVM> GetReportByCustomerID(string customerID)
         {
-            raporVM.Report = new List<CustomerOrderReportVM>();
-            raporVM.Report = (from c in new CustomerDAL().GetCustomerList()
-                              join o in new OrderDAL().GetAllOrders() on c.CustomerID equals o.CustomerID
-                              join od in new OrderDetailDAL().GetAllOrderDetails() on o.OrderID equals od.OrderID
-                              where c.CustomerID == raporVM.Customer.CustomerID
-                              group new { c, od } by new { c, od, o } into gr
-                              select new CustomerOrderReportVM
-                              {
-                                  OrderDate = gr.Key.o.OrderDate.Value,
-                                  CustomerName = gr.Key.c.CompanyName,
-                                  Price = gr.Sum(x => x.od.Quantity * x.od.UnitPrice * (decimal)(1 - x.od.Discount)),
-                                  Count = gr.Count()
-                              }).ToList();
-            return raporVM;
+            List<CustomerOrderReportVM> query = (from c in new CustomerDAL().GetAll().ToList()
+                                                 join o in new OrderDAL().GetAll().ToList() on c.CustomerID equals o.CustomerID
+                                                 join od in new OrderDetailDAL().GetAll() on o.OrderID equals od.OrderID
+                                                 where c.CustomerID == customerID
+                                                 group new { c, od } by new { c, od, o } into gr
+                                                 select new CustomerOrderReportVM
+                                                 {
+                                                     OrderDate = gr.Key.o.OrderDate.Value.ToShortDateString(),
+                                                     CustomerName = gr.Key.c.CompanyName,
+                                                     Price = gr.Sum(x => x.od.Quantity * x.od.UnitPrice * (decimal)(1 - x.od.Discount)),
+                                                 }).ToList();
+            return query;
+
         }
     }
 }
