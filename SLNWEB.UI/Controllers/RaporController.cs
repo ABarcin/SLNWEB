@@ -15,10 +15,10 @@ namespace SLNWEB.UI.Controllers
         CustomerDAL customerDal = new CustomerDAL();
         OrderDAL OrderDAL = new OrderDAL();
         ReportDAL reportDAL = new ReportDAL();
-        public ActionResult Index(RaporVM raporVM=null)
+        public ActionResult Index(RaporVM raporVM = null)
         {
             //ViewBag.Year = OrderDAL.GetYears();
-            if (raporVM.Report==null)
+            if (raporVM.Report == null)
             {
                 raporVM = new RaporVM()
                 {
@@ -26,7 +26,7 @@ namespace SLNWEB.UI.Controllers
                     Report = new List<CustomerOrderReportVM>()
                 };
             }
- 
+
 
             return View(raporVM);
         }
@@ -79,20 +79,24 @@ namespace SLNWEB.UI.Controllers
         }
 
 
-        public ActionResult CustomerRapor(RaporVM raporVM = null)
+        public ActionResult CustomerRapor(List<CustomerTopFiveReportVM> cusRaporVM = null)
         {
-            //ViewBag.Year = OrderDAL.GetYears();
-            if (raporVM.Report == null)
+            ViewBag.Year ="";
+            if (cusRaporVM == null)
             {
-                raporVM = new RaporVM()
-                {
-                    Customers = CustomerGetir(customerDal.GetCustomerList()),
-                    Report = new List<CustomerOrderReportVM>()
-                };
+                cusRaporVM = new List<CustomerTopFiveReportVM>();
             }
 
 
-            return View(raporVM);
+            return View(cusRaporVM);
+        }
+
+        [HttpPost]
+        public ActionResult CustomerRaporPost(string year)
+        {
+            List<CustomerTopFiveReportVM> cusRapor= reportDAL.GetTopFiveCustomerByYear(int.Parse(year));
+
+            return View("CustomerRapor", cusRapor);
         }
 
 

@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "CustomerRapor";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+@using SLNWEB.DAO.VM
+@model List<CustomerTopFiveReportVM>
+
+<div class="container-fluid px-4">
+    <h2 class="mt-4">Customer Raporu</h2>
+
+    @using (Html.BeginForm("CustomerRaporPost", "Rapor", FormMethod.Post))
+    {
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Year</h5>
+                    </div>
+                    <div class="col-md-3">
+                        @Html.TextBox("Year")
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <input type="submit" name="name" class="btn btn-outline-primary" value="Listele" style=" width: 100%;" />
+                </div>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>CustomerID</th>
+                            <th>CustomerFullName</th>
+                            <th>TotalPrice</th>
+                            <th>Year</th>
+
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>CustomerID</th>
+                            <th>CustomerFullName</th>
+                            <th>TotalPrice</th>
+                            <th>Year</th>
+
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th>@item.CustomerID</th>
+                                <td>@item.CustomerFullName</td>
+                                <td>@item.TotalPrice</td>
+                                <td>@item.Year</td>
+
+                            </tr>
+
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+</div>
+
