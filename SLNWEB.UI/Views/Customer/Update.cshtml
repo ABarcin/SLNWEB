@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+@using SLNWEB.DAO.VM
+@model CustomerVM
+<!DOCTYPE html>
+
+@using (Html.BeginForm("Update", "Customer", FormMethod.Post))
+{
+    <div>
+        <table>
+            <tr><td>@Html.EditorFor(x => x.CustomerID)</td></tr>
+            <tr><td>@Html.EditorFor(x => x.CompanyName)</td></tr>
+            <tr><td>@Html.EditorFor(x => x.ContactName)</td></tr>
+            <tr><td>@Html.EditorFor(x => x.ContactTitle)</td></tr>
+            <tr><td>@Html.EditorFor(x => x.Address)</td></tr>
+            <tr><td>@Html.EditorFor(x => x.City)</td></tr>
+            <tr><td>@Html.EditorFor(x => x.Region)</td></tr>
+            <tr><td>@Html.EditorFor(x => x.PostalCode)</td></tr>
+            <tr><td>@Html.EditorFor(x => x.Country)</td></tr>
+            <tr><td>@Html.EditorFor(x => x.Phone)</td></tr>
+            <tr><td>@Html.EditorFor(x => x.Fax)</td></tr>
+        </table>
+    </div>
+
+    <div>
+        <input type="submit" value="Update Customer" class="btn btn-info" />
+    </div>
+
+}
+
+
+
+
+
+
+
+
+
+

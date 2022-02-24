@@ -6,24 +6,14 @@
 @model CustomerVM
 <!DOCTYPE html>
 
-<html>
-<head>
-    <title>Delete</title>
-</head>
-<body>
+<h3>DELETE</h3>
+
+@using (Html.BeginForm("Delete", "Customer", FormMethod.Post))
+{
+    @Html.TextBoxFor(x => x.CustomerID)
     <div>
-
-        @using (Html.BeginForm("Delete", "Customer", FormMethod.Post))
-        {
-            @Html.AntiForgeryToken()
-        <div>
-            @Html.DropDownList("Customers", "Select..")
-
-        </div>
-
-            <input type="submit" name="name" value="Delete Customer" />
-        }
-
+        <input type="submit" value="Delete Customer" class="btn btn-info" />
     </div>
-</body>
-</html>
+
+}
+

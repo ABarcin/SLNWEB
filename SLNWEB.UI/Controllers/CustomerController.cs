@@ -12,7 +12,6 @@ namespace SLNWEB.UI.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Customers = new SelectList(new CustomerDAL().GetCustomerList());
             return View(new CustomerDAL().GetCustomerList());
         }
 
@@ -22,7 +21,6 @@ namespace SLNWEB.UI.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Add(CustomerVM customerVM)
         {
             if (ModelState.IsValid)
@@ -34,53 +32,36 @@ namespace SLNWEB.UI.Controllers
             return View(customerVM);
         }
 
-        public ActionResult Delete()
-        {
-            ViewBag.Customers = new SelectList(new CustomerDAL().GetCustomerList());
-            return View(new CustomerVM());
+        public ActionResult Delete(object id)
+        { 
+            return View(new CustomerDAL().GetCustomer(id));
         }
 
         [HttpPost]
         public ActionResult Delete(CustomerVM customerVM)
         {
-            if (ModelState.IsValid)
+            if (customerVM != null)
             {
                 new CustomerDAL().DeleteCustomer(customerVM);
-                
             }
 
             return RedirectToAction("Index", "Customer");
         }
 
-        //[HttpGet]
-        //public ActionResult Update(CustomerVM customerVM)
-        //{
-        //    if (customerVM == null)
-        //    {
-        //        return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
-        //    }
-        //    else
-        //    {
-        //        var customer = //dbden ara
+        public ActionResult Update(object id)
+        {
+            return View(new CustomerDAL().GetCustomer(id));
+        }
 
-        //        if (customer == null)
-        //        {
-        //            return HttpNotFound();
-        //        }
-        //        return View(customer);
-        //    }
-        //}
+        [HttpPost]
+        public ActionResult Update(CustomerVM customerVM)
+        {
+            if (customerVM != null)
+            {
+                new CustomerDAL().UpdateCustomer(customerVM);
+            }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult UpdatePost(CustomerVM customerVM)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        //daatbasee baglan elemanı guncelle
-        //    }
-
-        //    return View(customerVM);
-        //}
+            return RedirectToAction("Index", "Customer");
+        }
     }
 }
