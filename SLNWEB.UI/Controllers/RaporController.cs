@@ -26,22 +26,8 @@ namespace SLNWEB.UI.Controllers
                     Report = new List<CustomerOrderReportVM>()
                 };
             }
-
-
             return View(raporVM);
         }
-
-        //[HttpPost]
-        //public ActionResult Index(RaporVM raporVM)
-        //{
-        //    RaporVM raporVMs = new RaporVM()
-        //    {
-        //        Customers = CustomerGetir(customerDal.GetCustomerList()),
-        //        Report = reportDAL.GetReportByCustomerID(raporVM.Customer.CustomerID)
-        //    };
-        //    return View(raporVM);
-        //}
-
         [HttpPost]
         public ActionResult CustomerSatisRapor(RaporVM rapor)
         {
@@ -54,7 +40,6 @@ namespace SLNWEB.UI.Controllers
 
             return View("Index", raporVM);
         }
-
         /// <summary>
         /// script XMLHttpRequest için yazmıştık patladı bıraktık
         /// </summary>
@@ -77,8 +62,6 @@ namespace SLNWEB.UI.Controllers
                         Value = c.CustomerID.ToString()
                     }).ToList();
         }
-
-
         public ActionResult CustomerRapor(List<CustomerTopFiveReportVM> cusRaporVM = null)
         {
             ViewBag.Year ="";
@@ -86,8 +69,6 @@ namespace SLNWEB.UI.Controllers
             {
                 cusRaporVM = new List<CustomerTopFiveReportVM>();
             }
-
-
             return View(cusRaporVM);
         }
 
@@ -98,7 +79,5 @@ namespace SLNWEB.UI.Controllers
 
             return View("CustomerRapor", cusRapor);
         }
-
-
     }
 }

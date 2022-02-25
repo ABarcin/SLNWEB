@@ -22,8 +22,6 @@ namespace SLNWEB.UI.Controllers
         [HttpGet]
         public ActionResult SatisYap()
         {
-           
-
             return View((new SatisVM()
             {
                 Categories = GetCategories(categoryDal.GetAllCategories()),
@@ -51,7 +49,6 @@ namespace SLNWEB.UI.Controllers
                         Value = s.ShipperID.ToString()
                     }).ToList();
         }
-
         private List<SelectListItem> GetProducts(List<ProductVM> productVMs)
         {
             return (from p in productVMs
@@ -71,7 +68,6 @@ namespace SLNWEB.UI.Controllers
                         Value = e.EmployeeID.ToString()
                     }).ToList();
         }
-
         private List<SelectListItem> GetCategories(List<CategoryVM> categoryVMs)
         {
             return (from c in categoryVMs
@@ -86,16 +82,12 @@ namespace SLNWEB.UI.Controllers
         public ActionResult SatisYap(SatisVM satis)
         {
             ViewBag.msg = "0";
-
-
             int value = satisDal.AddSatis(satis);
             if (value > 0)
             {
                 ViewBag.msg = "1";
                 return RedirectToAction("SatisYap");
             }
-
-
             return RedirectToAction("SatisYap");
         }
 

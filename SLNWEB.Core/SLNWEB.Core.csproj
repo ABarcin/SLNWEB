@@ -65,6 +65,7 @@
     <Compile Include="Entities\Supplier.cs" />
     <Compile Include="Entities\sysdiagram.cs" />
     <Compile Include="Entities\Territory.cs" />
+    <Compile Include="Validation\Validation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
